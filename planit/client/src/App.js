@@ -13,6 +13,7 @@ class App extends Component {
           <NavBar />
           <Switch>
             <Route exact path='/' component={HomePage}/>
+            <Route exact path='/' component={HomePage}/>
             <Route component={ErrPage} />
           </Switch>
         </Fragment>
