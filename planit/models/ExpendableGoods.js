@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const OtherSchema = new Schema({
+const ExpendableGoodsSchema = new Schema({
   title: {
     type: String,
     required: true,
@@ -14,7 +14,7 @@ const OtherSchema = new Schema({
     default: false
   },
   price: {
-    type: Number,
+    type: Number
   },
   quantity_needed: {
     type: Number,
@@ -27,7 +27,7 @@ const OtherSchema = new Schema({
 });
 
 // Create the Headline model using the headlineSchema
-const Other = mongoose.model("Other", OtherSchema);
+const ExpendableGoods = mongoose.model("ExpendableGoods", ExpendableGoodsSchema);
 
 // Export the Headline model
-module.exports = Other;
+module.exports = ExpendableGoods;
