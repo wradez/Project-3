@@ -1,32 +1,29 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-
 const ExpendableGoodsSchema = new Schema({
-  Title: {
+  title: {
     type: String,
     required: true,
-    
   },
-  // summary, a string, must be entered
-  summary: {
-    type: String,
-    required: true
+  comments: {
+    type: String
   },
-  // url, a string, must be entered
-  url: {
-    type: String,
-    required: true
-  },
-  // date is just a string
-  date: {
-    type: Date,
-    default: Date.now
-  },
-  saved: {
+ completed: {
     type: Boolean,
     default: false
+  },
+  price: {
+    type: Number
+  },
+  quantity_needed: {
+    type: Number,
+    min: [1, 'please enter a quantity']
+  },
+  quantity_actual: {
+    type: Number
   }
+  //Admin and user connecting
 });
 
 // Create the Headline model using the headlineSchema
