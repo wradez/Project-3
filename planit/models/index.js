@@ -1,12 +1,11 @@
 module.exports = {
     Admin: require('./Admin'),
-    Flammables: require('./Flammables'),
-    Food_and_Drink: require('./Food_and_Drink'),
+    ExpendableGoods: require('./ExpendableGoods'),
     MessageBoard: require('./MessageBoard'),
     Other: require('./Other'),
     Recreational: require('./Recreational'),
-    Shelter: require('./Shelter'),
-    Transportation: require('./Transportation'),
+    Gear: require('./Gear'),
+    Logistics: require('./Logistics'),
     User: require('./User'),
 
 }

@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const RecreationalSchema = new Schema({
+const ExpendableGoodsSchema = new Schema({
   title: {
     type: String,
     required: true,
@@ -35,10 +35,11 @@ const RecreationalSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'Admin'
   }
+  
 });
 
 // Create the Headline model using the headlineSchema
-const Recreational = mongoose.model("Recreational", RecreationalSchema);
+const ExpendableGoods = mongoose.model("ExpendableGoods", ExpendableGoodsSchema);
 
 // Export the Headline model
-module.exports = Recreational;
+module.exports = ExpendableGoods;
