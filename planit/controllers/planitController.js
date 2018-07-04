@@ -2,10 +2,9 @@ const db = require("../models")
 
 module.exports = {
 
-    all: function(req,res){
+    findById: function(req,res){
         db.//database name
-        .find(req.query)
-        .sort({})
+        .findById(req.params.id)
         .then(db//database name => res.json(db//datbase name))
         .catch(err => res.status(422).json)
     },
