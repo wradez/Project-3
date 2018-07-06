@@ -37,6 +37,21 @@ const PlanCard = () => {
                 <p>Title: </p>
                 <p>Dates: </p>
             </div>
+            <div className='card' >
+                <img src={placeholder} alt='Plan Card' />
+                <p>Title: </p>
+                <p>Dates: </p>
+            </div>
+            <div className='card' >
+                <img src={placeholder} alt='Plan Card' />
+                <p>Title: </p>
+                <p>Dates: </p>
+            </div>
+            <div className='card' >
+                <img src={placeholder} alt='Plan Card' />
+                <p>Title: </p>
+                <p>Dates: </p>
+            </div>
         </Fragment>
     );
 }
