@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Dashboard.css';
 import profile_img from '../../img/profile_img.jpg';
-import placeholder from '../../img/placeholder_200x200.png';
+import PlanCard from '../../components/PlanCard/PlanCard';
 
 class HomePage extends Component {
 
@@ -18,27 +18,8 @@ class HomePage extends Component {
                         <button>Add a plan</button>
                     </div>
                 </div>
-                <div className='cardPanel'> 
-                    <div className='card' >
-                        <img src={placeholder} alt='Plan Card' />
-                        <p>Title: </p>
-                        <p>Dates: </p>
-                    </div>
-                    <div className='card' >
-                        <img src={placeholder} alt='Plan Card' />
-                        <p>Title: </p>
-                        <p>Dates: </p>
-                    </div>
-                    <div className='card' >
-                        <img src={placeholder} alt='Plan Card' />
-                        <p>Title: </p>
-                        <p>Dates: </p>
-                    </div>
-                    <div className='card' >
-                        <img src={placeholder} alt='Plan Card' />
-                        <p>Title: </p>
-                        <p>Dates: </p>
-                    </div>
+                <div className='cardPanel'>
+                    <PlanCard />
                 </div>
             </div>
         );
