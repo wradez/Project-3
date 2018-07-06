@@ -5,7 +5,7 @@ class HomePage extends Component {
 
     render () {
         return (
-            <p>PlanPage</p>
+            <p>PlanPage Placeholder</p>
         );
     }
 }
