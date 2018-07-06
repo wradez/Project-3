@@ -4,7 +4,7 @@ class ErrPage extends Component {
 
     render () {
         return (
-            <p>ErrPage</p>
+            <p>Something went horrendously wrong, try again</p>
         );
     }
 }
