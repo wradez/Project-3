@@ -6,9 +6,9 @@ class ErrPage extends Component {
 
     render () {
         return (
-            <div>
+            <div className = 'err_body'>
                 <img className = 'emoji' src = {Emoji} alt = {'emoji'} />
-                <p>Uh-Oh, you did something we didn't PLAN for, try something different.</p>
+                <p className = 'errMsg'>Uh-Oh, you did something we didn't PLAN for, try something different.</p>
             </div>
         );
     }
