@@ -1,11 +1,18 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import './PlanPage.css';
 
 class HomePage extends Component {
 
     render () {
         return (
-            <p>PlanPage Placeholder</p>
+            <Fragment>
+                <div className='InfoPanel' >
+
+                </div>
+                <div className='VisualPanel' >
+
+                </div>
+            </Fragment>
         );
     }
 }
