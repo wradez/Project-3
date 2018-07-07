@@ -1,9 +1,9 @@
-body {
+.err_body {
     
     animation: mymove 1s infinite;
 }
 
-p {
+.errMsg {
     font: Impact;
     font-size: 36px;
     animation: fontColor 2s infinite;
@@ -14,7 +14,7 @@ p {
     animation-duration: 3000ms;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
-    animation-direction: alternate;
+    /* animation-direction: alternate; */
     
 }
 
