@@ -11,6 +11,7 @@ class HomePage extends Component {
 
         return (
             <Fragment>
+                {/* this is all placeholder */}
                 <div className='InfoPanel' >
                     <h3>Title: </h3>
                     <p>Graduation Camping Trip</p>
