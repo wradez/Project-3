@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import './ErrPage.css';
-import Emoji from '../../img/errPage.jpg';
+import Emoji from '../../img/errPage.png';
 
 class ErrPage extends Component {
 
     render () {
         return (
             <div>
-                <img src = {Emoji} alt = {'emoji'} />
-                <p>Uh-Oh, you did something we didn't PLAN for, refresh and try again.</p>
+                <img className = 'emoji' src = {Emoji} alt = {'emoji'} />
+                <p>Uh-Oh, you did something we didn't PLAN for, try something different.</p>
             </div>
         );
     }
