@@ -6,7 +6,7 @@ module.exports = {
         db.planItdb
         .find(req.query)
         .sort({})
-        .then(db.planItdb => res.json(db.planItdb))
+        .then(ModelData => res.json(ModelData))
         .catch(err => res.status(422).json)
     },
         
@@ -20,15 +20,15 @@ module.exports = {
     update: function(req,res){
         db.planItdb
         .findOneAndUpdate({_id:req.params.id}, req.body)
-        .then(db.planItdb => res.json(db.planItdb))
+        .then(ModelData => res.json(ModelData))
         .catcher(err => res.status(422).json(err));
     },
 
     remove: function(req,res){
         db.planItdb
         .findById({_id: req.params.id})
-        .then(db.planItdb => db.planItdb.remove())
-        .then(db.planItdb => res.json(db.planItdb))
+        .then(ModelData => ModelData.remove())
+        .then(ModelData => res.json(ModelData))
         .catch(err => res.status(422).json)
     }
 };
