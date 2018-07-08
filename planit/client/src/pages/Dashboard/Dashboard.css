@@ -7,7 +7,6 @@
 .leftPanel {
     width: 25%;
     height: calc(100vh - 58px);
-    margin: auto 0px;
     float: left;
 }
 
@@ -19,18 +18,11 @@
     overflow: scroll;
 }
 
-.card {
-    text-align: center;
-    width: 30%;
-    margin: 25px 10px;
-    float: left;
-    box-shadow: 0 0 8px 0 rgba(0,0,0,0.2);
-}
 
 .card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 0px 16px 0 rgba(0,0,0,0.1);
 }
-
+/* 
 .profileImg {
     width: 100%;
     margin: auto;
@@ -39,10 +31,10 @@
 .profileInfo {
     width: 90%;
     margin: auto;
-}
-
+} */
+/* 
 .clearfix::after {
     content: "";
     clear: both;
     display: table;
-}
+} */

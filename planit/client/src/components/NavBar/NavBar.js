@@ -9,7 +9,8 @@ const Nav = styled.ul`
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #ffffff;
+    background-color: #fff;
+    font-family: 'Work Sans', sans-serif;
 `;
 
 const NavbarLogo = styled.li`
@@ -19,13 +20,17 @@ const NavbarLogo = styled.li`
     margin-bottom: .5em;
 `;
 
-const NavbarItem = styled.li`
+const NavbarButton = styled.li`
     float: right;
-    margin-right: 1.2em;
-    margin-top: 1.1em;
-    margin-bottom: 1em;
-    font-family: 'Oswald', sans-serif;
+    margin-right: 1.5em;
+    margin-top: 1.3em;
+    margin-bottom: 1.3em;
 `;
+
+// const NavbarItem = styled.li`
+//     float: right;
+//     margin: auto;
+// `;
 
 const LinkItem = styled.a`
     color: #2b6aaf;
@@ -40,18 +45,24 @@ class NavBar extends Component {
             <Fragment>
                 <Nav>
                     <NavbarLogo>
+                        <a href='/'>
                         <img src={PlanItLogo} alt='PlanIt Logo' width="55px" height="55px"/>
                         {/* <LinkItem href='/'>PlanIt</LinkItem> */}
+                        </a>
                     </NavbarLogo>
 
-                    <NavbarItem>
+                    <NavbarButton>
                         <Button>
-                        <LinkItem href='/login'>Login</LinkItem>
+                        <LinkItem href='/sign-up'>Signup</LinkItem>
                         </Button>
+                    </NavbarButton>
+
+                    {/* <NavbarItem>
+                        <LinkItem href='/login'>Login</LinkItem>
                     </NavbarItem>
                     
-                    {/* <NavbarItem>
-                        <LinkItem href='/home'>Home</LinkItem>
+                    <NavbarItem>
+                        <LinkItem href='/'>Home</LinkItem>
                     </NavbarItem> */}
                 </Nav>
             </Fragment>
