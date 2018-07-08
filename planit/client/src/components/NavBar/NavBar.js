@@ -40,7 +40,7 @@ class NavBar extends Component {
             <Fragment>
                 <Nav>
                     <NavbarLogo>
-                        <img src={PlanItLogo} alt='PlanIt Logo' width="55px" height="55px"/>
+                        <LinkItem href='/'><img src={PlanItLogo} alt='PlanIt Logo' width="55px" height="55px"/></LinkItem>
                         {/* <LinkItem href='/'>PlanIt</LinkItem> */}
                     </NavbarLogo>
 
