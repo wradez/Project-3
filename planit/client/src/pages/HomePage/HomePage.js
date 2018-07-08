@@ -9,11 +9,11 @@ class HomePage extends Component {
     render () {
         return (
             <Fragment>
-                <div className='homepageImage' >
+                <div >
                     <img src={defaultImages.array[Math.ceil(Math.random() * defaultImages.array.length)]} alt='Camping with a view' />
                 </div>
-                <div className='' >
-                    <div className='siteSummary'>
+                <div >
+                    <div >
                         <p>
                             PlanIt is an interactive trip planning web application that allows you to create, plan, and manage your camping trips. 
                             You can add other members to your existing plans to get everyone on the same page for any upcoming trips. <br/><br/>
@@ -25,17 +25,17 @@ class HomePage extends Component {
                             Join PlanIt today for <b><em>FREE</em></b> and stay organized and accountable!
                         </p>
                     </div>
-                    <div className='appFeatures' >
-                        <div className='featuresDiv' >
-                            <img className='' src={addFeature} alt='Feature display to add a plan' />
+                    <div >
+                        <div >
+                            <img src={addFeature} alt='Feature display to add a plan' />
                             <p>Add a planned event to help you and your friends get on teh same page.</p>
                         </div>
-                        <div className='featuresDiv' >
-                            <img className='' src={manageFeature} alt='Feature display to manage planned trips' />
+                        <div >
+                            <img src={manageFeature} alt='Feature display to manage planned trips' />
                             <p>Manage plan information such as dates, descriptions, who's coming, and checklists for what to bring.</p>
                         </div>
-                        <div className='featuresDiv' >
-                            <img className='' src={checklistFeature} alt='Feature display to use interactive checklists within plans' />
+                        <div >
+                            <img src={checklistFeature} alt='Feature display to use interactive checklists within plans' />
                             <p>Create interactive checklists that you and your plan members. Checkoff list items to assign them to your user and specify the quantity you're bringing.</p>
                         </div>
                     </div>
