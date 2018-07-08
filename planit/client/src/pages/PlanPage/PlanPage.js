@@ -1,9 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import './PlanPage.css';
-import memberImg from '../../img/50x50.png';
-import plus from '../../img/plus.png';
 import defaultImages from '../../img/defaultPlanImages';
 import Checklists from '../../components/Checklist/Checklist';
+import PlanMembers from '../../components/PlanMembers/PlanMembers';
 
 class HomePage extends Component {
 
@@ -11,7 +10,6 @@ class HomePage extends Component {
 
         return (
             <Fragment>
-                {/* this is all placeholder */}
                 <div className='InfoPanel' >
                     <h3>Title: </h3>
                     <p>Graduation Camping Trip</p>
@@ -19,11 +17,7 @@ class HomePage extends Component {
                     <p>July 13th - July 15th</p>
                     <h5>Members</h5>
                     <div className='PlanMembers' >
-                        <img className='membImg' src={memberImg} alt='Group member 1' />
-                        <img className='membImg' src={memberImg} alt='Group member 2' />
-                        <img className='membImg' src={memberImg} alt='Group member 3' />
-                        <img className='membImg' src={memberImg} alt='Group member 4' />
-                        <img className='membImg' src={plus} alt='Add a member' />
+                        <PlanMembers />
                     </div>
                 </div>
                 <div className='VisualPanel' >
