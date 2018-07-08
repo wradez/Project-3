@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 import Button from '../Button';
 import PlanItLogo from '../../img/PlanItLogo.png';
@@ -42,7 +42,7 @@ class NavBar extends Component {
    
    render () {
     return (
-            <Fragment>
+            <header>
                 <Nav>
                     <NavbarLogo>
                         <a href='/'>
@@ -65,7 +65,7 @@ class NavBar extends Component {
                         <LinkItem href='/'>Home</LinkItem>
                     </NavbarItem> */}
                 </Nav>
-            </Fragment>
+            </header>
         );
    }
 }
