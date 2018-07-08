@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import styled from 'styled-components';
 import Button from '../Button';
-// import './NavBar.css';
+import PlanItLogo from '../../img/PlanItLogo.png';
 // Router- Link
 
 const Nav = styled.ul`
@@ -9,30 +9,26 @@ const Nav = styled.ul`
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: aquamarine;
+    background-color: #ffffff;
 `;
 
 const NavbarLogo = styled.li`
     float: left;
-    margin-left: 20px;
-    margin-top: 1em;
-    margin-bottom: 1em;
+    margin-left: 1.2em;
+    margin-top: .75em;
+    margin-bottom: .5em;
 `;
-
-// upload logo 
-// const Logo = styled.img`
-//     src=""`
 
 const NavbarItem = styled.li`
     float: right;
-    margin-right: 20px;
-    margin-top: 1em;
+    margin-right: 1.2em;
+    margin-top: 1.1em;
     margin-bottom: 1em;
     font-family: 'Oswald', sans-serif;
 `;
 
 const LinkItem = styled.a`
-    color: #50c878;
+    color: #2b6aaf;
     text-decoration: none;
 `;
 
@@ -44,7 +40,8 @@ class NavBar extends Component {
             <Fragment>
                 <Nav>
                     <NavbarLogo>
-                        <LinkItem href='/'>PlanIt</LinkItem>
+                        <img src={PlanItLogo} alt='PlanIt Logo' width="55px" height="55px"/>
+                        {/* <LinkItem href='/'>PlanIt</LinkItem> */}
                     </NavbarLogo>
 
                     <NavbarItem>

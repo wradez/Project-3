@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 
 const Button = styled.button`
@@ -7,9 +6,10 @@ const Button = styled.button`
     padding-top: .75em;
     padding-bottom: .75em;
     background: #ffffff;
-    border: 2px solid #50c878;
+    border: 2px solid #2b6aaf;
     border-radius: 4px;    
     font-family: 'Work Sans', sans-serif;
+    color: #2b6aaf;
 `;
 
 export default Button;
