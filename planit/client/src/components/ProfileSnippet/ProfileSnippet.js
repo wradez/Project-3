@@ -1,15 +1,58 @@
-import React from 'react';
+import React, { Component, Fragment } from 'react';
+import styled from 'styled-components';
 import profile_img from '../../img/profile_img.jpg';
 
-const ProfileSnippet = () => {
+const ProfileDiv = styled.div`
+    margin: 1em;
+`;
 
-    return (
-        <div className='profileInfo'>
-            <img className='profileImg' src={profile_img} alt='Profile' />
-            <p>Walker Radez</p>
-            <p>walkerradez@gmail.com</p>
-        </div>
-    );
+const ProfilePicDiv = styled.div`
+    float: left;
+    width: 100px;
+    height: 100px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+`;
+
+const ProfilePic = styled.img`
+    display: inline;
+    margin: 0 auto;
+`;
+
+const ProfileInfoDiv = styled.div`
+    float: left;
+    margin-left: 1em;
+    font-family: 'Roboto', sans-serif;
+`;
+
+const ProfileName = styled.h4`
+    font-family: 'Roboto', sans-serif;
+`;
+
+const ProfileInfo = styled.p`
+    font-family: 'Roboto', sans-serif;
+`;
+
+class ProfileSnippet extends Component {
+
+    render () {
+        return (
+            <Fragment>
+                <ProfileDiv>
+                    <ProfilePicDiv>
+                        <ProfilePic src={profile_img} alt='Profile Picture'>
+                        </ProfilePic>
+                    </ProfilePicDiv>
+                
+                    <ProfileInfoDiv>
+                        <ProfileName>Walker Radez</ProfileName>
+                        <ProfileInfo>walkerradez@gmail.com</ProfileInfo>
+                    </ProfileInfoDiv>
+                </ProfileDiv>
+            </Fragment>
+        );  
+    } 
 }
 
 export default ProfileSnippet;
