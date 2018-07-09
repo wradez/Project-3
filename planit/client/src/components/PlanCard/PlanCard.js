@@ -33,6 +33,19 @@ const PlanInfo = styled.p`
 
 class PlanCard extends Component {
 
+    state = {
+        plans: []
+    }
+
+    componentDidMount = () => {
+        this.getUserPlans();
+    }
+
+    getUserPlans = () => {
+        //API call to get all plans associated with logged in user
+        //set these to state.....somehow and render them on the page for each element found
+    }
+
     render () {
 
         return (
@@ -41,38 +54,6 @@ class PlanCard extends Component {
                     <PlanImage src={placeholder} alt='Plan Card' />
                     <PlanTitle>
                         Title
-                    </PlanTitle>
-                    <PlanInfo>Location: </PlanInfo>
-                    <PlanInfo>Dates: </PlanInfo>
-                </PlanCardDiv>
-                <PlanCardDiv>
-                    <PlanImage src={placeholder} alt='Plan Card' />
-                    <PlanTitle>
-                        Title 
-                    </PlanTitle>
-                    <PlanInfo>Location: </PlanInfo>
-                    <PlanInfo>Dates: </PlanInfo>
-                </PlanCardDiv>
-                <PlanCardDiv>
-                    <PlanImage src={placeholder} alt='Plan Card' />
-                    <PlanTitle>
-                        Title
-                    </PlanTitle>
-                    <PlanInfo>Location: </PlanInfo>
-                    <PlanInfo>Dates: </PlanInfo>
-                </PlanCardDiv>
-                <PlanCardDiv>
-                    <PlanImage src={placeholder} alt='Plan Card' />
-                    <PlanTitle>
-                        Title 
-                    </PlanTitle>
-                    <PlanInfo>Location: </PlanInfo>
-                    <PlanInfo>Dates: </PlanInfo>
-                </PlanCardDiv>
-                <PlanCardDiv>
-                    <PlanImage src={placeholder} alt='Plan Card' />
-                    <PlanTitle>
-                        Title 
                     </PlanTitle>
                     <PlanInfo>Location: </PlanInfo>
                     <PlanInfo>Dates: </PlanInfo>
