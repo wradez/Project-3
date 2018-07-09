@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import axios from 'axios'
+import React, { Component } from 'react';
+import axios from 'axios';
 
 class Signup extends Component {
 	constructor() {
@@ -25,7 +25,7 @@ class Signup extends Component {
 		event.preventDefault()
 
 		//request to server to add a new username/password
-		axios.post('/user/', {
+		axios.post('/', {
 			email: this.state.email,
 			username: this.state.username,
 			password: this.state.password
