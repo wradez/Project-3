@@ -17,9 +17,9 @@ class AppProvider extends Component {
 
   state = {
     currentLoggedInUser: '',
-    setCurrent: () => {
-      this.setState({ currentLoggedInUser: response.data.username})
-    }
+    // setCurrent: () => {
+    //   this.setState({ currentLoggedInUser: response.data.username})
+    // }
   }
 
   render() {
