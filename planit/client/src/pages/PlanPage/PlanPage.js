@@ -5,6 +5,8 @@ import defaultImages from '../../img/defaultPlanImages';
 import Checklists from '../../components/Checklist/Checklist';
 import PlanMembers from '../../components/PlanMembers/PlanMembers';
 
+
+
 const TripImgDiv = styled.div`
     position: relative;
 `;
