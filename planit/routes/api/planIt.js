@@ -10,20 +10,112 @@ const Recreational = require("../../controllers/planitControllersRecreational");
 const User = require("../../controllers/planitControllersUser");
 // const planitControllersUserSession = require("../../controllers/planitContrllersUserSession");
 
-function (req,res){
+function userId (req,res){
     let items = [{
          name:ExpendableGoods,
          model: ExpendableGoods
          },
         {
-        name:ExpendableGoods,
-        model: ExpendableGoods   
+            name:Gear,
+            model: Gear
+        },
+        {
+            name:Logistics,
+            model:Logistics
+        },
+        {
+            name:Other,
+            name: Other
         },  
-        , Gear, Logistics, MessageBoard, Other, Recreational }];
+        {
+            name:Recreational,
+            name: Recreational
+        },  
+         ];
 
-    Promise.all()
+    Promise.all(items.map(item =>{
+        return new Promise((resolve, reject) =>{
+            item.model.find({id: userid}, (err, items) => {
+				if (err) {
+					return reject(err);
+                }
+                
+                resolve({
+                    [item.name]: items
+                });
+        });
+    });
+ }))
 
+ .then(items => {
+     let contents = {};
+     items.forEach(item =>{
+         contents = {
+             ...contents, items
+         };
+     });
+     res.send(contents);
+ })
+.catch(err => {
+    consle.error(err);
+
+    res.status(500).send(err);
+})
 }
+
+function planId (req,res){
+    let items = [{
+         name:ExpendableGoods,
+         model: ExpendableGoods
+         },
+        {
+            name:Gear,
+            model: Gear
+        },
+        {
+            name:Logistics,
+            model:Logistics
+        },
+        {
+            name:Other,
+            name: Other
+        },  
+        {
+            name:Recreational,
+            name: Recreational
+        },  
+         ];
+
+    Promise.all(items.map(item =>{
+        return new Promise((resolve, reject) =>{
+            item.model.find({id: planid}, (err, items) => {
+				if (err) {
+					return reject(err);
+                }
+                
+                resolve({
+                    [item.name]: items
+                });
+        });
+    });
+ }))
+
+ .then(items => {
+     let contents = {};
+     items.forEach(item =>{
+         contents = {
+             ...contents, items
+         };
+     });
+     res.send(contents);
+ })
+.catch(err => {
+    consle.error(err);
+
+    res.status(500).send(err);
+})
+}
+
 
 
 
@@ -36,7 +128,7 @@ router.route("/user/:userid")
     .delete(User.remove);
 
  router.route("/user/:userid/all")
-    .get(planitControllersUser.findAllByUserId)
+    .get(planitControllersUser.userId)
     .put(planitControllersUser.update)
     .post(planitControllersAdmin.create)
     .delete(planitControllersUser.remove);
@@ -47,7 +139,7 @@ router.route("/plan/:planid")
     .delete(User.remove);
 
  router.route("/plan/:planid/all")
-    .get(User.findByPlanId)
+    .get(User.planId)
     .put(User.update)   
     .delete(User.remove);
 
