@@ -1,11 +1,12 @@
 import React, { Component, Fragment } from 'react';
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import axios from 'axios';
 import './App.css';
 import HomePage from './pages/HomePage/HomePage';
 import Dashboard from './pages/Dashboard/Dashboard';
 import PlanPage from './pages/PlanPage/PlanPage';
 import ErrPage from './pages/ErrPage/ErrPage';
-import Signup from './components/sign-up'
+import Signup from './components/sign-up';
 import LoginForm from './components/login-form'
 import NavBar from './components/NavBar/NavBar';
 import Footer from './components/Footer/Footer';
@@ -68,7 +69,7 @@ class App extends Component {
             <LoginForm
               updateUser={this.updateUser}
               />} />
-        <Route path="/signup" render={() =>
+            <Route path="/signup" render={() =>
             <Signup/>} />
             <Route component={ErrPage} />
           </Switch>
