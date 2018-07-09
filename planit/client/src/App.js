@@ -57,10 +57,17 @@ class App extends Component {
       <Router>
         <Fragment>
           <NavBar updateUser={this.updateUser} loggedIn={this.state.loggedIn} />
+<<<<<<< HEAD
         {/* greet user if logged in: */}
         {this.state.loggedIn &&
           <p>Join the party, {this.state.username}!</p>
         }
+=======
+            {/* greet user if logged in: */}
+            {this.state.loggedIn &&
+              <p>Join the party, {this.state.username}!</p>
+            }
+>>>>>>> d6bc52ce55b3fa7687f2aaea38584b64f2db1e73
           <Switch>
             <Route exact path='/' component={HomePage}/>
             <Route exact path='/dashboard' component={Dashboard}/>
