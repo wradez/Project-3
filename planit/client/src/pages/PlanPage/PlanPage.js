@@ -45,19 +45,23 @@ class HomePage extends Component {
                 <div className='InfoPanel' >
                     <TripImgDiv>
                         <TripImg src={defaultImages.array[Math.ceil(Math.random() * defaultImages.array.length)]} alt='Plan image' />
-                        <TripTitle>
-                            Camping Trip Title
+                        <TripTitle> 
+                            {/* needs to be replaced with dynamic title */}
+                            Camping Trip Title 
                         </TripTitle>
                     </TripImgDiv>
                     <TripInfo> 
+                    {/* needs to be replaced with dynamic location */}
                         <i className="map-marked-alt"></i>
                         Location: 
                     </TripInfo>
                     <TripInfo> 
+                        {/* needs to be replaced with dynamic dates */}
                         <i className="calendar-alt"></i>
                         Dates:
                     </TripInfo>
                     <TripInfo> 
+                        {/* needs to be replaced with dynamic plan members */}
                         <i className="users"></i>
                         Members: 
                     </TripInfo>
