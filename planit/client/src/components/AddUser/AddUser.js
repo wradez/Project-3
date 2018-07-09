@@ -8,6 +8,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import plus from '../../img/plus.png';
+import './AddUser.css';
 
 const PlusImg = styled.img`
     width: 50px;
@@ -23,10 +24,10 @@ const AddUser = () => {
    const enterMember= () => {
         //pop-up with input field for email
         //on submission call fetchUser
-        prompt(`Enter user's email adress to add them to the group`, `example@gmail.com`);
+        document.getElementById("myDropdown").classList.toggle("show");
     }
 
-    fetchUser = event => {
+    const fetchUser = event => {
         event.preventDefault();
         //axios call to User table
             //if user exists add to members array for associated plan(PlanIt table)
@@ -35,9 +36,22 @@ const AddUser = () => {
     }
 
     return (
-        <a>
-            <PlusImg src={plus} onClick={enterMember} alt='Add a member' />
-        </a>
+        // <a>
+        //     <PlusImg src={plus} onClick={enterMember} alt='Add a member' />
+        // </a>
+        <div className="dropdown">
+            
+                <PlusImg className="dropbtn" src={plus} onClick={enterMember} alt='Add a member' />
+            
+            <div id="myDropdown" className="dropdown-content">
+                <form>
+                    email:<br />
+                    <input></input>
+                </form>
+                <br />
+                <button href="#">Link 3</button>
+            </div>
+        </div>
     )
     
 }
