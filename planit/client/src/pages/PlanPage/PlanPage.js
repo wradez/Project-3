@@ -1,10 +1,9 @@
 import React, { Component, Fragment } from 'react';
 import styled from 'styled-components';
 import './PlanPage.css';
-import memberImg from '../../img/50x50.png';
-import plus from '../../img/plus.png';
 import defaultImages from '../../img/defaultPlanImages';
 import Checklists from '../../components/Checklist/Checklist';
+import PlanMembers from '../../components/PlanMembers/PlanMembers';
 
 const TripImgDiv = styled.div`
     position: relative;
@@ -37,22 +36,12 @@ const MemDiv = styled.div`
     margin: 1em;
 `;
 
-const MemImg = styled.img`
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    margin-left: .25em;
-    margin-right: .25em;
-    margin-bottom: .5em;
-`;
-
 class HomePage extends Component {
 
     render () {
 
         return (
-            <Fragment>
-                {/* this is all placeholder */}
+            <div className='container clearfix'>
                 <div className='InfoPanel' >
                     <TripImgDiv>
                         <TripImg src={defaultImages.array[Math.ceil(Math.random() * defaultImages.array.length)]} alt='Plan image' />
@@ -73,11 +62,7 @@ class HomePage extends Component {
                         Members: 
                     </TripInfo>
                     <MemDiv>
-                        <MemImg src={memberImg} alt='Group member 1' />
-                        <MemImg src={memberImg} alt='Group member 2' />
-                        <MemImg src={memberImg} alt='Group member 3' />
-                        <MemImg src={memberImg} alt='Group member 4' />
-                        <MemImg src={plus} alt='Add a member' />
+                        <PlanMembers />
                     </MemDiv>
                 </div>
                 <div className='VisualPanel'>
@@ -85,7 +70,7 @@ class HomePage extends Component {
                         <Checklists />
                     </div>
                 </div>
-            </Fragment>
+            </div>
         );
     }
 }
