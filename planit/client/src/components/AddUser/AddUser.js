@@ -21,7 +21,8 @@ const PlusImg = styled.img`
 
 const AddUser = () => {
 
-   const enterMember= () => {
+   const enterMember= event => {
+        event.preventDefault();
         //pop-up with input field for email
         //on submission call fetchUser
         document.getElementById("myDropdown").classList.toggle("show");
@@ -45,11 +46,11 @@ const AddUser = () => {
             
             <div id="myDropdown" className="dropdown-content">
                 <form>
-                    email:<br />
+                    Email:<br />
                     <input></input>
                 </form>
                 <br />
-                <button href="#">Link 3</button>
+                <button type='submit' onClick={fetchUser}>Add</button>
             </div>
         </div>
     )
