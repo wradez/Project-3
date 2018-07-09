@@ -1,4 +1,4 @@
-const router = require("express").Router();
+ const router = require("express").Router();
 const Admin = require("../../controllers/planitControllersAdmin");
 const ExpendableGoods = require("../../controllers/planitControllersExpendableGoods");
 const Gear = require("../../controllers/planitControllersGear");
@@ -10,7 +10,7 @@ const Recreational = require("../../controllers/planitControllersRecreational");
 const User = require("../../controllers/planitControllersUser");
 // const planitControllersUserSession = require("../../controllers/planitContrllersUserSession");
 
-function userId (req,res){
+function userId (req, res){
     let items = [{
          name:ExpendableGoods,
          model: ExpendableGoods
@@ -118,20 +118,20 @@ function planId (req,res){
 
 
 
-
-
-
 router.route("/user/:userid")
     .get(User.findAllByUserId)
     .put(User.update)
     .post(User.create)
     .delete(User.remove);
 
- router.route("/user/:userid/all")
-    .get(planitControllersUser.userId)
-    .put(planitControllersUser.update)
-    .post(planitControllersAdmin.create)
-    .delete(planitControllersUser.remove);
+router.route("/user/:userid/all")
+    .get(userId())
+    .put(User.update)
+    .post(Admin.create)
+    .delete(User.remove);
+
+router.route("/user/")
+    .post(User.create)
 
 router.route("/plan/:planid")
     .get(User.findByPlanId)
