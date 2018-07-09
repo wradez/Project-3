@@ -1,5 +1,5 @@
  const router = require("express").Router();
-const Admin = require("../../controllers/planitControllersAdmin");
+// const Admin = require("../../controllers/planitControllersAdmin");
 const ExpendableGoods = require("../../controllers/planitControllersExpendableGoods");
 const Gear = require("../../controllers/planitControllersGear");
 const Logistics = require("../../controllers/planitControllersLogisitics");
@@ -125,61 +125,61 @@ router.route("/user/:userid")
     .delete(User.remove);
 
 router.route("/user/:userid/all")
-    .get(userId())
+    .get(userId)
     .put(User.update)
-    .post(Admin.create)
+    .post(User.create)
     .delete(User.remove);
 
 router.route("/user/")
     .post(User.create)
 
 router.route("/plan/:planid")
-    .get(User.findByPlanId)
+    .get(User.findAllByUserId)
     .put(User.update)   
     .delete(User.remove);
 
  router.route("/plan/:planid/all")
-    .get(User.planId)
+    .get(planId)
     .put(User.update)   
     .delete(User.remove);
 
 router.route("/plan/")
     .post(User.create)
 
-router.route("/Admin")
-    .get(Admin.findAll)
-    .put(Admin.update)
-    .post(Admin.create)
-    .delete(Admin.remove);
+// router.route("/Admin")
+//     .get(Admin.findAll)
+//     .put(Admin.update)
+//     .post(Admin.create)
+//     .delete(Admin.remove);
 
 router.route("/ExpendableGoods")
-    .get(ExpendableGoods.findById)
+    .get(ExpendableGoods.findAllByUserId)
     .post(ExpendableGoods.create)
     .put(ExpendableGoods.update);
 
 router.route("/Gear")
-    .get(Gear.findAll)
+    .get(Gear.findAllByUserId)
     .post(Gear.create)
     .put(Gear.update);
 
 
 router.route("/Logistics")
-    .get(Logistics.findAll)
+    .get(Logistics.findAllByUserId)
     .post(Logistics.create)
     .put(Logistics.update);
 
 router.route("/MessageBoard")
-    .get(MessageBoard.findAll)
+    .get(MessageBoard.findAllByUserId)
     .post(MessageBoard.create)
     .put(MessageBoard.update);
 
 router.route("/Other")
-    .get(Other.findAll)
+    .get(Other.findAllByUserId)
     .post(Other.create)
     .put(Other.update);
 
 router.route("/Recreational")
-    .get(Recreational.findAll)
+    .get(Recreational.findAllByUserId)
     .post(Recreational.create)
     .put(Recreational.update);
 
