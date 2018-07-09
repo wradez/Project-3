@@ -60,7 +60,7 @@ class App extends Component {
         {/* greet user if logged in: */}
         {this.state.loggedIn &&
           <p>Join the party, {this.state.username}!</p>
-        }/>
+        }
           <Switch>
             <Route exact path='/' component={HomePage}/>
             <Route exact path='/dashboard' component={Dashboard}/>

@@ -90,14 +90,14 @@ class NavBar extends Component {
 
                             </NavbarButton>
                         ) : (
-                                <NavbarButton className="navbar-section">
-                                    <LinkItem href="/login" className="btn">
-                                        <span className="text-secondary">login </span>
-				                    </LinkItem>
-                                    <LinkItem href="/signup" className="btn btn-link">
-                                        <span className="text-secondary">sign up </span>
-				                    </LinkItem>
-                                </NavbarButton>
+                    <NavbarButton className="navbar-section">
+                        <LinkItem href="/login" className="btn">
+                            <span className="text-secondary">login </span>
+				        </LinkItem>
+                        <LinkItem href="/signup" className="btn btn-link">
+                            <span className="text-secondary">sign up </span>
+				        </LinkItem>
+                    </NavbarButton>
                             )}
 
                 </Nav>
