@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+<<<<<<< HEAD
+=======
+    "ajv": "^6.5.2",
+>>>>>>> acb8bfd9ed32a7e6d570661837370d0d5d0cef50
     "axios": "^0.18.0",
     "font-awesome": "^4.7.0",
     "react": "^16.4.1",
