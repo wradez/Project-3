@@ -1,9 +1,24 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+const session = require('express-session');
 const router = require("./routes");
+var MongoStore = require('connect-mongo')(session);
 const app = express();
 const PORT = process.env.PORT || 3001;
+
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function () {
+});
+app.use(session({
+  secret: 'work hard',
+  resave: true,
+  saveUninitialized: false,
+  store: new MongoStore({
+    mongooseConnection: db
+  })
+}));
 
 // Define middleware here
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -23,3 +38,7 @@ app.listen(PORT, function() {
   console.log(`Server now listening on PORT ${PORT}!`);
 });
 
+
+app.use(logger("dev"));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static("public"));
