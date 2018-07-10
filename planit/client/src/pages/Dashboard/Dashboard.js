@@ -45,6 +45,7 @@ class HomePage extends Component {
         //get call using the currentUser to get all user information
             //set profile info to state currentUserProfile
         //pass through as props to the <ProfileSnippet /> component
+        
     }
 
     render () {
