@@ -62,9 +62,9 @@ class App extends Component {
               <p>Join the party, {this.state.username}!</p>
             }
           <Switch>
-            <Route exact path='/' component={HomePage}/>
-            <Route exact path='/dashboard' component={Dashboard}/>
-            <Route exact path='/plan' component={PlanPage} />
+            <Route exact path='/' component={HomePage}/> 
+            <Route exact path='/Gear' component={Dashboard}/>
+            <Route exact path='/Gear/:id' component={PlanPage} />
             <Route path="/login" render={() =>
             <LoginForm
               updateUser={this.updateUser}

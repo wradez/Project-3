@@ -3,7 +3,7 @@ const db = require("../models")
 module.exports = {
 
 
-    ffindOneByPlanId: function(req,res){
+    findOneByPlanId: function(req,res){
         db.Gear
             .then(req.query)
             .sort({_:id})
