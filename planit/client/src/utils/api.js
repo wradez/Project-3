@@ -7,15 +7,15 @@ export default {
 // },
 
 getPlanByID: function(id){
-    return axios.get("/api/Gear/" + id)
+    return axios.get("/api/planit/" + id)
 },
 
 postPlan: function(GearData){
-    return axios.post("/api/Gear/",GearData)
+    return axios.post("/api/planit/",GearData)
 },
 
-deletPlan: function(id){
-    return axios.put("/api/Gear" + id)
+deletePlan: function(id){
+    return axios.put("/api/planit" + id)
     
 },
     

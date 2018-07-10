@@ -63,8 +63,8 @@ class App extends Component {
             }
           <Switch>
             <Route exact path='/' component={HomePage}/> 
-            <Route exact path='/Gear' component={Dashboard}/>
-            <Route exact path='/Gear/:id' component={PlanPage} />
+            <Route exact path='/planit' component={Dashboard}/>
+            <Route exact path='/planit/:id' component={PlanPage} />
             <Route path="/login" render={() =>
             <LoginForm
               updateUser={this.updateUser}

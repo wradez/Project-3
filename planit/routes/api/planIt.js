@@ -157,10 +157,10 @@ router.route("/:id")
 //     .post(ExpendableGoods.create)
 //     .put(ExpendableGoods.update);
 
-router.route("/Gear")
-    .get(Gear.findAllByUserId)
-    .post(Gear.create)
-    .put(Gear.update);
+// router.route("/Gear")
+//     .get(Gear.findAllByUserId)
+//     .post(Gear.create)
+//     .put(Gear.update);
 
 
 // router.route("/Logistics")
