@@ -1,9 +1,11 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 import './PlanPage.css';
 import defaultImages from '../../img/defaultPlanImages';
 import Checklists from '../../components/Checklist/Checklist';
 import PlanMembers from '../../components/PlanMembers/PlanMembers';
+
+
 
 const TripImgDiv = styled.div`
     position: relative;
@@ -41,23 +43,27 @@ class HomePage extends Component {
     render () {
 
         return (
-            <Fragment>
+            <div className='container clearfix'>
                 <div className='InfoPanel' >
                     <TripImgDiv>
                         <TripImg src={defaultImages.array[Math.ceil(Math.random() * defaultImages.array.length)]} alt='Plan image' />
-                        <TripTitle>
-                            Camping Trip Title
+                        <TripTitle> 
+                            {/* needs to be replaced with dynamic title */}
+                            Camping Trip Title 
                         </TripTitle>
                     </TripImgDiv>
                     <TripInfo> 
+                    {/* needs to be replaced with dynamic location */}
                         <i className="map-marked-alt"></i>
                         Location: 
                     </TripInfo>
                     <TripInfo> 
+                        {/* needs to be replaced with dynamic dates */}
                         <i className="calendar-alt"></i>
                         Dates:
                     </TripInfo>
                     <TripInfo> 
+                        {/* needs to be replaced with dynamic plan members */}
                         <i className="users"></i>
                         Members: 
                     </TripInfo>
@@ -70,7 +76,7 @@ class HomePage extends Component {
                         <Checklists />
                     </div>
                 </div>
-            </Fragment>
+            </div>
         );
     }
 }
