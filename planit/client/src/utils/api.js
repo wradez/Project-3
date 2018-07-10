@@ -2,21 +2,23 @@ import axios from "axios";
 
 export default {
 
-// getAllUserPlans: function(id){
-//     return axios.get("/api/planit/user/" + id)
-// },
+getAllUserPlans: function(id){
+    return axios.get("/api/planit/plan/"+ id + "/all" )
+},
 
 getPlanByID: function(id){
-    return axios.get("/api/planit/" + id)
+    return axios.get("/api/planit/plan/" + id)
 },
 
 postPlan: function(GearData){
-    return axios.post("/api/planit/",GearData)
+    return axios.post("/api/planit/plan/", GearData)
 },
 
-deletePlan: function(id){
-    return axios.put("/api/planit" + id)
+// deletePlan: function(id){
+//     return axios.put("/api/planit" + id)
     
-},
+// },
+
+
     
 }
