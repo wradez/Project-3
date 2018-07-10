@@ -38,7 +38,8 @@ mongoose.connect((process.env.MONGODB_URI || "mongodb://localhost:27017/planitdb
 app.use(passport.initialize())
 app.use(passport.session()) // calls the deserializeUser
 
-
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static("public"));
 
 // Start the API server
 app.listen(PORT, function() {
@@ -47,5 +48,4 @@ app.listen(PORT, function() {
 
 
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static("public"));
+
