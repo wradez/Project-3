@@ -5,10 +5,11 @@
         //needs an input field and a submit button
         //if an email is not in the database, let the user know it's invalid
 
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 import plus from '../../img/plus.png';
 import './AddUser.css';
+
 
 const PlusImg = styled.img`
     width: 50px;
@@ -19,41 +20,52 @@ const PlusImg = styled.img`
     margin-bottom: .5em;
 `;
 
-const AddUser = () => {
+class AddUser extends Component {
+    state ={
 
-   const enterMember= event => {
+    };
+
+   enterMember= event => {
         event.preventDefault();
         //pop-up with input field for email
         //on submission call fetchUser
         document.getElementById("myDropdown").classList.toggle("show");
-    }
+    };
 
-    const fetchUser = event => {
+    fetchUser = event => {
         event.preventDefault();
         //axios call to User table
             //if user exists add to members array for associated plan(PlanIt table)
                 //update associated plans members list with new user
             //else msg, "user does not exist"
-    }
-
-    return (
-        // <a>
-        //     <PlusImg src={plus} onClick={enterMember} alt='Add a member' />
-        // </a>
-        <div className="dropdown">
-            
-                <PlusImg className="dropbtn" src={plus} onClick={enterMember} alt='Add a member' />
-            
-            <div id="myDropdown" className="dropdown-content">
-                <form>
-                    Email:<br />
-                    <input></input>
-                </form>
-                <br />
-                <button type='submit' onClick={fetchUser}>Add</button>
+            // API.PUT({
+            //     email:''
+            // })
+            //     .then(res => this.PUT())
+            //     .catch(err => console.log(err));
+        
+    };
+    render() {
+        return (
+            // <a>
+            //     <PlusImg src={plus} onClick={enterMember} alt='Add a member' />
+            // </a>
+            <div className="dropdown">
+                
+                    <PlusImg className="dropbtn" src={plus} onClick={this.enterMember} alt='Add a member' />
+                
+                <div id="myDropdown" className="dropdown-content">
+                    <form>
+                        Email:<br />
+                        <input></input>
+                    </form>
+                    <br />
+                    <button type='submit' onClick={this.fetchUser}>Add</button>
+                </div>
             </div>
-        </div>
-    )
+        )
+    };
+   
     
 }
 
