@@ -23,16 +23,13 @@ const NavbarLogo = styled.li`
 `;
 
 const NavbarButton = styled.li`
+    text-align: center;
     float: right;
-    margin-right: 1.5em;
-    margin-top: 1.3em;
-    margin-bottom: 1.3em;
+    margin-right: 2em;
+    margin-top: 1.2em;
+    margin-bottom: 1em;
+   
 `;
-
-// const NavbarItem = styled.li`
-//     float: right;
-//     margin: auto;
-// `;
 
 const LinkItem = styled.a`
     color: #2b6aaf;
@@ -76,26 +73,34 @@ class NavBar extends Component {
                         </a>
                     </NavbarLogo>
 
-                    <NavbarButton>
+                    {/* <NavbarButton>
                         <Button>
-                        <LinkItem href='/signup'>Signup</LinkItem>
+                        <LinkItem href='/login'>Login</LinkItem>
                         </Button>
                     </NavbarButton>
+                     */}
                     {loggedIn ? (
                             <NavbarButton>
-                                <LinkItem href=""  onClick={this.logout}>
-                                <span className="text-secondary">logout</span></LinkItem>
+                                <Button>
+                                    <LinkItem href=""  onClick={this.logout}>
+                                    <span className="text-secondary">logout</span></LinkItem>
+                                </Button>
 
                             </NavbarButton>
                         ) : (
-                    <NavbarButton className="navbar-section">
-                        <LinkItem href="/login" className="btn">
-                            <span className="text-secondary">login </span>
-				        </LinkItem>
-                        <LinkItem href="/signup" className="btn btn-link">
-                            <span className="text-secondary">sign up </span>
-				        </LinkItem>
-                    </NavbarButton>
+                                <NavbarButton className="navbar-section">
+                                    
+                                    <LinkItem href="/signup" className="btn">
+                                        <span className="text-secondary">Signup </span>
+                                    </LinkItem>
+                                    
+
+                                    <Button>
+                                        <LinkItem href="/login" className="btn btn-link">
+                                            <span className="text-secondary">Login </span>
+                                        </LinkItem>
+                                    </Button>
+                                </NavbarButton>
                             )}
 
                 </Nav>
