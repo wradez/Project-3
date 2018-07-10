@@ -1,0 +1,9 @@
+body {
+  position: relative;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
