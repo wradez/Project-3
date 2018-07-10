@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router';
 // import styled from 'styled-components';
 import './Dashboard.css';
 // import API from '../../utils/API';
 import Button from '../../components/Button';
 import PlanCard from '../../components/PlanCard/PlanCard';
 import ProfileSnippet from '../../components/ProfileSnippet/ProfileSnippet';
+import API from '../../utils/api';
+// import { getMaxListeners } from 'cluster';
 
 
 const CreateButton = Button.extend`
@@ -19,16 +22,23 @@ class HomePage extends Component {
 
     state = {
         currentUser: '',
-        currentUserProfile: {}
+        currentUserProfile: {
+            email: 'email@gmail.com',
+            username: 'defaut username',
+            name: 'default user'
+        }
     }
 
     createPlan = () => {
-        //axios call to create a plan
-            //pass an object with empty strings plus the userID of the user creating the plan
-            //
-        //once the plan is created, .then to redirect to the specific plan page
-            //should be something like /plan/:planID
-            //maybe user a react-router <Redirect>
+        API.postPlan({
+            title: '',
+            location: '',
+            members: [this.state.currentUser]
+        })
+        .then(res => {
+            <Redirect to={'/plan/' + res._id}  />
+        })
+        .catch(err => console.log(err))
     }
 
     fetchProfileInfo = () => {
@@ -41,7 +51,7 @@ class HomePage extends Component {
         return (
             <div className='container clearfix'>
                 <div className='leftPanel'>
-                    <ProfileSnippet />
+                    <ProfileSnippet profile={this.state.currentUserProfile}/>
                     <div>
                         <CreateButton onClick={this.createPlan}>
                             Create a new plan

@@ -45,8 +45,8 @@ const ProfileSnippet = props => {
                 </ProfilePicDiv>
 
                 <ProfileInfoDiv>
-                    <ProfileName>{props.name}</ProfileName>
-                    <ProfileInfo>{props.email}</ProfileInfo>
+                    <ProfileName>{props.profile.name}</ProfileName>
+                    <ProfileInfo>{props.profile.email}</ProfileInfo>
                 </ProfileInfoDiv>
             </ProfileDiv>
         </Fragment>
