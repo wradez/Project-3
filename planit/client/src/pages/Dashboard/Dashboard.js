@@ -17,11 +17,24 @@ const CreateButton = Button.extend`
 
 class HomePage extends Component {
 
+    state = {
+        currentUser: '',
+        currentUserProfile: {}
+    }
 
     createPlan = () => {
         //axios call to create a plan
+            //pass an object with empty strings plus the userID of the user creating the plan
+            //
         //once the plan is created, .then to redirect to the specific plan page
-            // should be something like /plan/:planID
+            //should be something like /plan/:planID
+            //maybe user a react-router <Redirect>
+    }
+
+    fetchProfileInfo = () => {
+        //get call using the currentUser to get all user information
+            //set profile info to state currentUserProfile
+        //pass through as props to the <ProfileSnippet /> component
     }
 
     render () {
@@ -30,7 +43,7 @@ class HomePage extends Component {
                 <div className='leftPanel'>
                     <ProfileSnippet />
                     <div>
-                        <CreateButton onClick={ () => this.createPlan}>
+                        <CreateButton onClick={this.createPlan}>
                             Create a new plan
                         </CreateButton>
                     </div>
