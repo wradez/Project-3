@@ -53,21 +53,21 @@ class PlanCard extends Component {
     }
 
     loadPlan = id => {
-        const planID = id
+        // const planID = id
 
-        API.getPlanByID(id)
-        .then(plan => this.setState({
-            clickedPlan: plan
-        }))
-        //add another .then to load the plan page with the specific cleckedPlan planID
-        .catch(err => console.log(err))
+        // API.getPlanByID(id)
+        // .then(plan => this.setState({
+        //     clickedPlan: plan
+        // }))
+        // //add another .then to load the plan page with the specific cleckedPlan planID
+        // .catch(err => console.log(err))
     }
 
     render () {
 
         return (
             <Fragment>
-                {this.state.plans.map( plan => {
+                {this.state.plans.map( plan => (
                     <PlanCardDiv id={plan._id} onClick={ () => this.loadPlan(plan._id)}>
                         <PlanImage src={placeholder} alt='Plan Visual' />
                         <PlanTitle>
@@ -76,7 +76,7 @@ class PlanCard extends Component {
                         <PlanInfo>Location: {plan.location}</PlanInfo>
                         <PlanInfo>Dates: {plan.date}</PlanInfo>
                     </PlanCardDiv>
-                })}
+                ))}
             </Fragment>
         );
     }

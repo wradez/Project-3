@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
-import { Route, Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Button from '../Button';
 import PlanItLogo from '../../img/PlanItLogo.png';
