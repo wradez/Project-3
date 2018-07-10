@@ -23,52 +23,47 @@ const FormDiv = styled.div`
 `;
 
 class Signup extends Component {
-	constructor() {
-		super()
-		this.state = {
+
+		state = {
 			email: '',
 			username: '',
 			password: '',
 			confirmPassword: '',
 
 		}
-		this.handleSubmit = this.handleSubmit.bind(this)
-		this.handleChange = this.handleChange.bind(this)
-	}
-	handleChange(event) {
-		this.setState({
-			[event.target.name]: event.target.value
-		})
-	}
-	handleSubmit(event) {
-		console.log('sign-up handleSubmit, username: ')
-		console.log(this.state.username)
-		event.preventDefault()
-
-		//request to server to add a new username/password
-		axios.post('/', {
-			email: this.state.email,
-			username: this.state.username,
-			password: this.state.password
-		})
-			.then(response => {
-				console.log(response)
-				if (!response.data.errmsg) {
-					console.log('successful signup')
-					this.setState({ //redirect to login page
-						redirectTo: '/login'
-					})
-				} else {
-					console.log('username already taken')
-				}
-			}).catch(error => {
-				console.log('signup error: ')
-				console.log(error)
-
-			})
-	}
-
-
+		handleInputChange = event => {
+			const { name, value } = event.target;
+		
+			this.setState({
+			  [name]: value
+			});
+		  };
+		
+		  handleFormSubmit = event => {
+			  console.log('sign-up handleSubmit, username: ')
+			  console.log(this.state.username)
+			event.preventDefault();
+			axios.post('/', {
+			  email: this.state.email,
+			  username: this.state.username,
+			  password: this.state.password
+		  })
+			  .then(response => {
+				  console.log(response)
+				  if (!response.data.errmsg) {
+					  console.log('successful signup')
+					  this.setState({ //redirect to login page
+						  redirectTo: '/login'
+					  })
+				  } else {
+					  console.log('username already taken')
+				  }
+			  }).catch(error => {
+				  console.log('signup error: ')
+				  console.log(error)
+	  
+			  })
+	  }
 render() {
 	return (
 		<PageDiv className="SignupForm">
@@ -86,7 +81,7 @@ render() {
 							name="email"
 							placeholder="Email"
 							value={this.state.email}
-							onChange={this.handleChange}
+							onChange={this.handleInputChange}
 						/>
 					</div>
 				</div>
@@ -101,7 +96,7 @@ render() {
 							name="username"
 							placeholder="Username"
 							value={this.state.username}
-							onChange={this.handleChange}
+							onChange={this.handleInputChange}
 						/>
 					</div>
 				</div>
@@ -116,7 +111,7 @@ render() {
 							type="password"
 							name="password"
 							value={this.state.password}
-							onChange={this.handleChange}
+							onChange={this.handleInputChange}
 						/>
 					</div>
 				</div>
@@ -124,7 +119,7 @@ render() {
 					<div className="col-7"></div>
 					<button
 						className="btn btn-primary col-1 col-mr-auto"
-						onClick={this.handleSubmit}
+						onClick={this.handleFormSubmit}
 						type="submit"
 					>Sign up</button>
 				</div>
