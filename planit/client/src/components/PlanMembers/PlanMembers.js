@@ -1,3 +1,6 @@
+//At the very least, we need this component to display the members who are assigned to a plan and the button to add new users to the plan. Stretch:
+    //allow these users to be clickable, which would show the user information.
+
 import React, { Fragment } from 'react';
 import styled from 'styled-components';
 import memberImg from '../../img/50x50.png';
@@ -13,6 +16,8 @@ const MemImg = styled.img`
 `;
 
 const PlanMembers = () => {
+
+    
 
     return (
         <Fragment>
