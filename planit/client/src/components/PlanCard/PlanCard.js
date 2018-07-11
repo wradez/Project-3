@@ -45,16 +45,6 @@ class PlanCard extends Component {
         // this.getUserPlans();
     }
 
-<<<<<<< HEAD
-    getUserPlans = () => {
-        //API call to get all plans associated with logged in user
-        //set these to state.....somehow and render them on the page for each element found
-        API.getAllUserPlans(this.state.currentUser)
-        .then(plans => this.setState({
-            plans: plans
-        }))
-        .catch(err => console.log(err))
-=======
 
     getUserPlans = () => {
         //API call to get all plans associated with logged in user
@@ -64,7 +54,6 @@ class PlanCard extends Component {
         //     plans: plans
         // }))
         // .catch(err => console.log(err))
->>>>>>> 16a92d4c38c8e0bed29bf0753d6bdb85498d42a1
     }
 
     loadPlan = id => {
