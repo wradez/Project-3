@@ -12,12 +12,14 @@ import './AddUser.css';
 import Button from '../Button';
 
 const PlusImg = styled.img`
-    width: 50px;
-    height: 50px;
+    width: 25px;
+    height: 25px;
     border-radius: 50%;
     margin-left: .25em;
     margin-right: .25em;
     margin-bottom: .5em;
+    align-content: left;
+    justify-content: left;
 `;
 
 const AddButton = Button.extend`

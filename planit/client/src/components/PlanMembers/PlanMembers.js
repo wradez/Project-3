@@ -9,12 +9,18 @@ import memberImg from '../../img/50x50.png';
 import AddUser from '../AddUser/AddUser';
 
 const MemImg = styled.img`
-    width: 50px;
-    height: 50px;
+    width: 25px;
+    height: 25px;
     border-radius: 50%;
     margin-left: .25em;
     margin-right: .25em;
-    margin-bottom: .5em;
+    margin-bottom: .5em;  
+`;
+
+const MemDiv = styled.div`
+    display: flex;
+    align-content: left;
+    justify-content: left;
 `;
 
 let members = [];
@@ -28,11 +34,13 @@ const PlanMembers = () => {
 
     return (
         <Fragment>
-            <MemImg src={memberImg} alt='Group member 1' />
-            <MemImg src={memberImg} alt='Group member 2' />
-            <MemImg src={memberImg} alt='Group member 3' />
-            <MemImg src={memberImg} alt='Group member 4' />
+            <MemDiv>
+                <MemImg src={memberImg} alt='Group member 1' />
+                <MemImg src={memberImg} alt='Group member 2' />
+                <MemImg src={memberImg} alt='Group member 3' />
+                <MemImg src={memberImg} alt='Group member 4' />
             <AddUser />
+            </MemDiv>
         </Fragment>
     )
 }

@@ -43,6 +43,10 @@ const ItemInput = styled.input`
 	margin-right: .25em;
 	font-family: 'Roboto', sans-serif;
     font-size: 1rem;
+
+    &:hover {
+		border: 1px solid #2b6aaf;
+	}
 `;
 
 const QuantityInput = styled.input`
@@ -58,6 +62,10 @@ const QuantityInput = styled.input`
 	margin-right: .25em;
 	font-family: 'Roboto', sans-serif;
     font-size: 1rem;
+
+    &:hover {
+		border: 1px solid #2b6aaf;
+	}
 `;
 
 const CostInput = styled.input`
@@ -73,6 +81,10 @@ const CostInput = styled.input`
 	margin-right: .25em;
 	font-family: 'Roboto', sans-serif;
     font-size: 1rem;
+
+    &:hover {
+		border: 1px solid #2b6aaf;
+	}
 `;
 
 class ChecklistLineItem extends Component {

@@ -44,8 +44,16 @@ const TripInfoImg = styled.img`
     /* justify-content: center; */
 `;
 
+const TripInfoMemImg = styled.img`
+    width: 24px;
+    height: auto;
+    margin-bottom: 10px;
+    /* justify-content: center; */
+`;
+
 const TripInfo = styled.p`
     display: inline-block;
+    margin-top: 20px;
     margin-left: .25em;
     margin-right: .25em;
     font-family: 'Roboto', sans-serif;
@@ -53,6 +61,25 @@ const TripInfo = styled.p`
 
 const MemDiv = styled.div`
     margin: 1em;
+`;
+
+const Input = styled.input`
+    float: left;
+	color: black;
+	background: #ffffff;
+	border: none;
+	border-radius: 4px;
+	width: 100%;
+	margin-top: .25em;
+	margin-bottom: .25em;
+	margin-left: .1em;
+	margin-right: .25em;
+	font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+
+    &:hover {
+		border: 1px solid #2b6aaf;
+	}
 `;
 
 class HomePage extends Component {
@@ -74,22 +101,25 @@ class HomePage extends Component {
                     {/* needs to be replaced with dynamic location */}
                         <TripInfoImg src={location} alt="location icon"/>
                         <TripInfo>Location: </TripInfo>
+                        <Input/> 
                     </TripInfoDiv>
 
                     <TripInfoDiv> 
                     {/* needs to be replaced with dynamic location */}
                         <TripInfoImg src={dates} alt="location icon"/>
                         <TripInfo>Dates: </TripInfo>
+                        <Input/> 
                     </TripInfoDiv>
 
                     <TripInfoDiv> 
                     {/* needs to be replaced with dynamic location */}
-                        <TripInfoImg src={members} alt="location icon"/>
+                        <TripInfoMemImg src={members} alt="location icon"/>
                         <TripInfo>Members: </TripInfo>
+                        <MemDiv>
+                            <PlanMembers />
+                        </MemDiv>
                     </TripInfoDiv>
-                    <MemDiv>
-                        <PlanMembers />
-                    </MemDiv>
+                    
                 </div>
                 <div className='VisualPanel'>
                     <div>
