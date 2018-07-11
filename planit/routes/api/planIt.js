@@ -1,13 +1,13 @@
  const router = require("express").Router();
-// const Admin = require("../../controllers/planitControllersAdmin");
-// const ExpendableGoods = require("../../controllers/planitControllersExpendableGoods");
+const Admin = require("../../controllers/planitControllersAdmin");
+const ExpendableGoods = require("../../controllers/planitControllersExpendableGoods");
 const Gear = require("../../controllers/planitControllersGear");
-// const Logistics = require("../../controllers/planitControllersLogisitics");
-// const MessageBoard = require("../../controllers/planitControllersMessageBoard");
-// const Other = require("../../controllers/planitControllersOther");
-// const planitControllersPlanIt = require("../../controllers/PlanitControllersPlanIt");
-// const Recreational = require("../../controllers/planitControllersRecreational");
-// const User = require("../../controllers/planitControllersUser");
+const Logistics = require("../../controllers/planitControllersLogisitics");
+const MessageBoard = require("../../controllers/planitControllersMessageBoard");
+const Other = require("../../controllers/planitControllersOther");
+const PlanIt = require("../../controllers/planitControllersPlanIt");
+const Recreational = require("../../controllers/planitControllersRecreational");
+const User = require("../../controllers/planitControllersUser");
 // const planitControllersUserSession = require("../../controllers/planitContrllersUserSession");
 
 // function userId (req, res){
@@ -119,73 +119,76 @@ const Gear = require("../../controllers/planitControllersGear");
 
 
 router.route("/")
-    .get(Gear.findAllByUserId)
-    .put(Gear.update)
-    .post(Gear.create)
-    .delete(Gear.remove);
+    .get(PlanIt.findAllByPlanItId)
+    .put(PlanIt.update)
+    .post(PlanIt.create)
+    .delete(PlanIt.remove);
 
 router.route("/:id")
-    .get(Gear.findAllByUserId)
-    .put(Gear.update)
-    .post(Gear.create)
-    .delete(Gear.remove);
+    .get(PlanIt.findOneByPlanId)
+    .put(PlanIt.update)
+    .post(PlanIt.create)
+    .delete(PlanIt.remove);
 
-// router.route("/user/")
-//     .post(User.create)
+router.route("/user")
+    .post(User.create)
 
-// router.route("/plan/:planid")
-//     .get(User.findAllByUserId)
-//     .put(User.update)   
-//     .delete(User.remove);
+//Route allows you to find only by plan ID
+router.route("/plan/:planid")
+    .get(PlanIt.findOneByPlanId)
+    .put(PlanIt.update)  
+    .post(PlanIt.create) 
+    .delete(PlanIt.remove);
 
-//  router.route("/plan/:planid/all")
-//     .get(planId)
-//     .put(User.update)   
-//     .delete(User.remove);
+//Routes allows to find all
+ router.route("/plan/:planid/all")
+    .get(PlanIt.findAllByPlanItId)
+    .put(PlanIt.update)   
+    .delete(PlanIt.remove);
 
-// router.route("/plan/")
-//     .post(User.create)
+router.route("/plan")
+    .post(PlanIt.create)
 
-// router.route("/Admin")
-//     .get(Admin.findAll)
+// router.route("/Admin/")
+//     .get(Admin.findAllByUserId)
 //     .put(Admin.update)
 //     .post(Admin.create)
 //     .delete(Admin.remove);
 
-// router.route("/ExpendableGoods")
-//     .get(ExpendableGoods.findAllByUserId)
-//     .post(ExpendableGoods.create)
-//     .put(ExpendableGoods.update);
+router.route("/travel/is/fun/ExpendableGoods")
+    .get(ExpendableGoods.findAllByUserId)
+    .post(ExpendableGoods.create)
+    .put(ExpendableGoods.update);
 
-// router.route("/Gear")
-//     .get(Gear.findAllByUserId)
-//     .post(Gear.create)
-//     .put(Gear.update);
+router.route("/travel/is/fun/with/Gear")
+    .get(Gear.findAllByUserId)
+    .post(Gear.create)
+    .put(Gear.update);
 
 
-// router.route("/Logistics")
-//     .get(Logistics.findAllByUserId)
-//     .post(Logistics.create)
-//     .put(Logistics.update);
+router.route("/travel/is/fun/with/your/Logistics")
+    .get(Logistics.findAllByUserId)
+    .post(Logistics.create)
+    .put(Logistics.update);
 
-// router.route("/MessageBoard")
-//     .get(MessageBoard.findAllByUserId)
-//     .post(MessageBoard.create)
-//     .put(MessageBoard.update);
+router.route("/travel/is/fun/with/your/friends/MessageBoard")
+    .get(MessageBoard.findAllByUserId)
+    .post(MessageBoard.create)
+    .put(MessageBoard.update);
 
-// router.route("/Other")
-//     .get(Other.findAllByUserId)
-//     .post(Other.create)
-//     .put(Other.update);
+router.route("/travel/is/fun/with/your/friends/and/Other")
+    .get(Other.findAllByUserId)
+    .post(Other.create)
+    .put(Other.update);
 
-// router.route("/Recreational")
-//     .get(Recreational.findAllByUserId)
-//     .post(Recreational.create)
-//     .put(Recreational.update);
+router.route("/travel/is/fun/with/your/friends/and/family/Recreational")
+    .get(Recreational.findAllByUserId)
+    .post(Recreational.create)
+    .put(Recreational.update);
 
-// router.route("/User")
-//     .get(planitControllersUser.findAll)
-//     .post(planitControllersUser.create)
-//     .put(planitControllersUser.update);
+router.route("/travel/is/fun/with/your/friends/and/family/enjoy/User")
+    .get(User.findAllByUserId)
+    .post(User.create)
+    .put(User.update);
 
 module.exports = router;
