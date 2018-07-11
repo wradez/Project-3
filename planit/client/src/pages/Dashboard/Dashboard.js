@@ -20,29 +20,24 @@ const CreateButton = Button.extend`
 class HomePage extends Component {
 
     state = {
-        plans: [
-            {
-                title: 'Graduation Camping',
-                location: 'Rocky Mountain National',
-                date: Date.now,
-                _id: '98734598kj2b34598',
-            },
-            {
-                title: 'Barbados Family Trip',
+        plans: {
+            plan1: {
+                title: 'Barbados Trip',
                 location: 'Barbados',
-                date: Date.now,
-                _id: 'sakdjfh3298749824',
+                date: '8/02/18',
+                _id: 'xklfjhg293879584'
             },
-            {
-                title: 'Donald Relaxation Trip',
-                location: 'Costa Rico',
-                date: Date.now,
-                _id: 'skdjfh98347987234',
+            plan2: {
+                title: 'Donald Relaxation',
+                location: 'Costa Rica',
+                date: '8/08/18',
+                _id: '239875498798df'
             }
-        ],
+        },
+        plansArray: [],
         clickedPlan: {},
         loadPlan: false,
-        currentUser: '',
+        currentUser: 'Walker',
         currentUserProfile: {
             email: 'email@gmail.com',
             username: 'defaut username',
@@ -100,15 +95,37 @@ class HomePage extends Component {
 
     getUserPlans = () => {
 
-        API.getAllUserPlans(this.state.currentUser)
-        .then(plans => this.setState({
+        const plans = this.state.plans
+
+        // for( let onePlan in plans ) {
+
+        //     console.log(plans[onePlan])
+
+        // }
+
+        API.getAllUserPlans('Walker')
+        .then(plans => {
+
+            for( let onePlan in plans ) {
+
+                console.log(plans[onePlan])
+
+            }
+
+            this.setState({
             plans: plans
-        }))
+        })
+    })
         .catch(err => console.log(err))
         
     }
 
     render () {
+
+        //<PlanCard title={plan.title} location={plan.location} id={plan._id} date={plan.date} clicked={this.loadPlan} />
+
+
+        
         return (
             <div className='container clearfix'>
                 <div className='leftPanel'>
@@ -120,9 +137,7 @@ class HomePage extends Component {
                     </div>
                 </div>
                 <div className='cardPanel'>
-                    {this.state.plans.map( plan => {
-                        return <PlanCard title={plan.title} location={plan.location} id={plan._id} date={plan.date} clicked={this.loadPlan} />
-                    })}
+                    
                 </div>
             </div>
         );
