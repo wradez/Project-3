@@ -43,6 +43,7 @@ class PlanCard extends Component {
         // this.getUserPlans();
     }
 
+
     getUserPlans = () => {
         //API call to get all plans associated with logged in user
         //set these to state.....somehow and render them on the page for each element found
