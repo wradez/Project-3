@@ -69,7 +69,6 @@ class Signup extends Component {
 			confirmPassword: '',
 
 		}
-<<<<<<< HEAD
 		handleInputChange = event => {
 			const { name, value } = event.target;
 		
@@ -103,45 +102,6 @@ class Signup extends Component {
 	  
 			  })
 	  }
-=======
-		this.handleSubmit = this.handleSubmit.bind(this)
-		this.handleChange = this.handleChange.bind(this)
-	}
-	handleChange(event) {
-		this.setState({
-			[event.target.name]: event.target.value
-		})
-	}
-	handleSubmit(event) {
-		console.log('sign-up handleSubmit, username: ');
-		console.log(this.state.username)
-		event.preventDefault()
-
-		//request to server to add a new username/password
-		axios.post('/user/', {
-			email: this.state.email,
-			username: this.state.username,
-			password: this.state.password
-		})
-			.then(response => {
-				console.log(response)
-				if (!response.data.errmsg) {
-					console.log('successful signup')
-					this.setState({ //redirect to login page
-						redirectTo: '/login'
-					})
-				} else {
-					console.log('username already taken')
-				}
-			}).catch(error => {
-				console.log('signup error: ')
-				console.log(error)
-
-			});
-	}
-
-
->>>>>>> 0a561c2f0661f5dc6411ce5c9f940f2412939a0b
 render() {
 	return (
 		<PageDiv className="SignupForm">
