@@ -2,9 +2,9 @@ import React, { Component, Fragment } from 'react';
 import styled from 'styled-components';
 import check from '../../../img/baseline-check_circle_outline-24px.svg'
 
-const ItemDiv = styled.li`
+const ItemDiv = styled.div`
     display: inline-flex;
-    margin-left: 10px;
+    margin-left: 1em;
 `;
 
 const LineItem = styled.p`
@@ -15,8 +15,8 @@ const LineItem = styled.p`
 
 const ItemSymbol = styled.p`
     font-family: 'Roboto', sans-serif;
-    margin-top: .2em;
-    margin-bottom: .2em;
+    margin-top: 6px;
+    margin-bottom: 2px;
     float: left;
 `;
 
@@ -24,6 +24,8 @@ const ItemIcon = styled.div`
     width: 25px;
     height: 25px;
     float: left;
+    margin-top: 4px;
+    margin-bottom: 4px;
 `;
 
 const ItemInput = styled.input`
@@ -39,6 +41,7 @@ const ItemInput = styled.input`
 	margin-left: .1em;
 	margin-right: .25em;
 	font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
 `;
 
 const QuantityInput = styled.input`
@@ -74,7 +77,7 @@ class ChecklistLineItem extends Component {
     render () {
         return (
             <Fragment>
-                <ul>
+                
                 <ItemDiv>
                     <ItemIcon>
                         <img src={check} alt="checkmark"/>
@@ -134,7 +137,7 @@ class ChecklistLineItem extends Component {
                         placeholder="Cost"
                     />  
                 </ItemDiv>
-                </ul>
+            
                 {/* <HR /> */}
                 {/* <ItemDiv>
                     <LineItem>
