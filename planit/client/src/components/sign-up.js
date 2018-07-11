@@ -2,19 +2,33 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 import Button from './Button';
+import email from '../img/outline-email-24px.svg';
+import username from '../img/outline-account_circle-24px.svg';
+import password from '../img/outline-visibility-24px.svg';
 
 const FormButton = Button.extend`
 	width: 100%;
 	margin-top: .5em;
 `;
 
+const Div = styled.div`
+	float: left;
+`;
+
+const Img = styled.img`
+	fill: #2b6aaf;
+	display: inline-block;
+`;
+
 const Input = styled.input`
+	display: inline-block;
+	float: left;
 	padding: .5em;
 	color: black;
 	background: #ffffff;
 	border: none;
 	border-radius: 4px;
-	width: 95%;
+	width: 75%;
 	margin-top: .5em;
 	margin-bottom: .5em;
 	margin-left: auto;
@@ -28,7 +42,7 @@ const Input = styled.input`
 
 const PageDiv = styled.div`
 	width: 100%;
-	height: 605px;
+	height: 550px;
 `;
 
 const Header = styled.h4`
@@ -55,6 +69,7 @@ class Signup extends Component {
 			confirmPassword: '',
 
 		}
+<<<<<<< HEAD
 		handleInputChange = event => {
 			const { name, value } = event.target;
 		
@@ -88,17 +103,57 @@ class Signup extends Component {
 	  
 			  })
 	  }
+=======
+		this.handleSubmit = this.handleSubmit.bind(this)
+		this.handleChange = this.handleChange.bind(this)
+	}
+	handleChange(event) {
+		this.setState({
+			[event.target.name]: event.target.value
+		})
+	}
+	handleSubmit(event) {
+		console.log('sign-up handleSubmit, username: ');
+		console.log(this.state.username)
+		event.preventDefault()
+
+		//request to server to add a new username/password
+		axios.post('/user/', {
+			email: this.state.email,
+			username: this.state.username,
+			password: this.state.password
+		})
+			.then(response => {
+				console.log(response)
+				if (!response.data.errmsg) {
+					console.log('successful signup')
+					this.setState({ //redirect to login page
+						redirectTo: '/login'
+					})
+				} else {
+					console.log('username already taken')
+				}
+			}).catch(error => {
+				console.log('signup error: ')
+				console.log(error)
+
+			});
+	}
+
+
+>>>>>>> 0a561c2f0661f5dc6411ce5c9f940f2412939a0b
 render() {
 	return (
 		<PageDiv className="SignupForm">
 			<Header>Sign up</Header>
 			<FormDiv>
 			<form>
-				<div>
+				<Div>
 					{/* <div>
 						<label className="form-label" htmlFor="email">Email</label>
 					</div> */}
-					<div>
+						<Img src={email} alt="Email Icon"/>
+							
 						<Input
 							type="text"
 							id="email"
@@ -107,13 +162,13 @@ render() {
 							value={this.state.email}
 							onChange={this.handleInputChange}
 						/>
-					</div>
-				</div>
+				</Div>
 				<div>
 					{/* <div>
 						<label className="form-label" htmlFor="username">Username</label>
 					</div> */}
 					<div>
+						<Img src={username} alt="Username Icon"/>
 						<Input
 							type="text"
 							id="username"
@@ -130,6 +185,7 @@ render() {
 						<label className="form-label" htmlFor="password">Password: </label>
 					</div> */}
 					<div>
+						<Img src={password} alt="Password Icon"/>
 						<Input
 							placeholder="Password"
 							type="password"
