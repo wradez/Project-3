@@ -20,6 +20,28 @@ const CreateButton = Button.extend`
 class HomePage extends Component {
 
     state = {
+        plans: [
+            {
+                title: 'Graduation Camping',
+                location: 'Rocky Mountain National',
+                date: Date.now,
+                _id: '98734598kj2b34598',
+            },
+            {
+                title: 'Barbados Family Trip',
+                location: 'Barbados',
+                date: Date.now,
+                _id: 'sakdjfh3298749824',
+            },
+            {
+                title: 'Donald Relaxation Trip',
+                location: 'Costa Rico',
+                date: Date.now,
+                _id: 'skdjfh98347987234',
+            }
+        ],
+        clickedPlan: {},
+        loadPlan: false,
         currentUser: '',
         currentUserProfile: {
             email: 'email@gmail.com',
@@ -28,15 +50,19 @@ class HomePage extends Component {
         }
     }
 
+    componentDidMount = () => {
+        this.getUserPlans()
+    }
+
     createPlan = () => {
 
         API.postPlan({
-            title: 'Test',
-            location: 'Test',
+            title: '',
+            location: '',
             members: [this.state.currentUser]
         })
         .then(res => {
-            <Redirect to={'/plan/' + res._id}  />
+            <Redirect to={'/planit/' + res._id}  />
         })
         .catch(err => console.log(err))
 
@@ -47,6 +73,36 @@ class HomePage extends Component {
         API.getUser(this.state.currentUser)
         .then( user => this.setState({
             currentUserProfile: user
+        }))
+        .catch(err => console.log(err))
+        
+    }
+
+    loadPlan = id => {
+
+        console.log('clicked ' + id)
+
+        API.getPlanByID(id)
+        .then(plan => {
+            console.log('hit the .then')
+            this.setState({
+            clickedPlan: plan,
+            loadPlan: true
+            })
+            if( this.state.loadPlan ) {
+                <Redirect to={'/planit/' + plan._id}  />
+            }
+        })
+        //add another .then to load the plan page with the specific cleckedPlan planID
+        .catch(err => console.log(err))
+
+    }
+
+    getUserPlans = () => {
+
+        API.getAllUserPlans(this.state.currentUser)
+        .then(plans => this.setState({
+            plans: plans
         }))
         .catch(err => console.log(err))
         
@@ -64,7 +120,9 @@ class HomePage extends Component {
                     </div>
                 </div>
                 <div className='cardPanel'>
-                    <PlanCard currentUser={this.state.currentUser}/>
+                    {this.state.plans.map( plan => {
+                        return <PlanCard title={plan.title} location={plan.location} id={plan._id} date={plan.date} clicked={this.loadPlan} />
+                    })}
                 </div>
             </div>
         );

@@ -33,56 +33,20 @@ const PlanInfo = styled.p`
 `;
 
 
-class PlanCard extends Component {
-
-    state = {
-        plans: [],
-        clickedPlan: null,
-        currentUser: this.props.currentUser
-    }
-
-    componentDidMount = () => {
-        // this.getUserPlans();
-    }
-
-    getUserPlans = () => {
-        //API call to get all plans associated with logged in user
-        //set these to state.....somehow and render them on the page for each element found
-        API.getAllUserPlans(this.state.currentUser)
-        .then(plans => this.setState({
-            plans: plans
-        }))
-        .catch(err => console.log(err))
-    }
-
-    loadPlan = id => {
-        // const planID = id
-
-        // API.getPlanByID(id)
-        // .then(plan => this.setState({
-        //     clickedPlan: plan
-        // }))
-        // //add another .then to load the plan page with the specific cleckedPlan planID
-        // .catch(err => console.log(err))
-    }
-
-    render () {
+const PlanCard = props => {
 
         return (
             <Fragment>
-                {this.state.plans.map( plan => (
-                    <PlanCardDiv id={plan._id} onClick={ () => this.loadPlan(plan._id)}>
-                        <PlanImage src={placeholder} alt='Plan Visual' />
-                        <PlanTitle>
-                            {plan.title}
-                        </PlanTitle>
-                        <PlanInfo>Location: {plan.location}</PlanInfo>
-                        <PlanInfo>Dates: {plan.date}</PlanInfo>
-                    </PlanCardDiv>
-                ))}
+                <PlanCardDiv id={props.id} onClick={ () => props.clicked(props.id)} >
+                    <PlanImage src={placeholder} alt='Plan Visual' />
+                    <PlanTitle>
+                        {props.title}
+                    </PlanTitle>
+                    <PlanInfo>Location: {props.location}</PlanInfo>
+                    <PlanInfo>Dates: {props.date}</PlanInfo>
+                </PlanCardDiv>
             </Fragment>
         );
-    }
 
 }
 
