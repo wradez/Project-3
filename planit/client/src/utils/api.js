@@ -82,7 +82,5 @@ postUser: function(UserData){
 //     return axios.put("/api/planit" + id)
     
 // },
-
-
     
 }
