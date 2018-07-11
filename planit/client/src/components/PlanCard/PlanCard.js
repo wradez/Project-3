@@ -33,6 +33,7 @@ const PlanInfo = styled.p`
 `;
 
 
+<<<<<<< HEAD
 class PlanCard extends Component {
 
     state = {
@@ -67,22 +68,22 @@ class PlanCard extends Component {
     }
 
     render () {
+=======
+const PlanCard = props => {
+>>>>>>> upstream/master
 
         return (
             <Fragment>
-                {this.state.plans.map( plan => (
-                    <PlanCardDiv id={plan._id} onClick={ () => this.loadPlan(plan._id)}>
-                        <PlanImage src={placeholder} alt='Plan Visual' />
-                        <PlanTitle>
-                            {plan.title}
-                        </PlanTitle>
-                        <PlanInfo>Location: {plan.location}</PlanInfo>
-                        <PlanInfo>Dates: {plan.date}</PlanInfo>
-                    </PlanCardDiv>
-                ))}
+                <PlanCardDiv id={props.id} onClick={ () => props.clicked(props.id)} >
+                    <PlanImage src={placeholder} alt='Plan Visual' />
+                    <PlanTitle>
+                        {props.title}
+                    </PlanTitle>
+                    <PlanInfo>Location: {props.location}</PlanInfo>
+                    <PlanInfo>Dates: {props.date}</PlanInfo>
+                </PlanCardDiv>
             </Fragment>
         );
-    }
 
 }
 

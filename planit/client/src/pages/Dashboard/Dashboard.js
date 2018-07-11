@@ -20,7 +20,24 @@ const CreateButton = Button.extend`
 class HomePage extends Component {
 
     state = {
-        currentUser: '',
+        plans: {
+            plan1: {
+                title: 'Barbados Trip',
+                location: 'Barbados',
+                date: '8/02/18',
+                _id: 'xklfjhg293879584'
+            },
+            plan2: {
+                title: 'Donald Relaxation',
+                location: 'Costa Rica',
+                date: '8/08/18',
+                _id: '239875498798df'
+            }
+        },
+        plansArray: [],
+        clickedPlan: {},
+        loadPlan: false,
+        currentUser: 'Walker',
         currentUserProfile: {
             email: 'email@gmail.com',
             username: 'defaut username',
@@ -28,15 +45,19 @@ class HomePage extends Component {
         }
     }
 
+    componentDidMount = () => {
+        this.getUserPlans()
+    }
+
     createPlan = () => {
 
         API.postPlan({
-            title: 'Test',
-            location: 'Test',
+            title: '',
+            location: '',
             members: [this.state.currentUser]
         })
         .then(res => {
-            <Redirect to={'/plan/' + res._id}  />
+            <Redirect to={'/planit/' + res._id}  />
         })
         .catch(err => console.log(err))
 
@@ -52,7 +73,59 @@ class HomePage extends Component {
         
     }
 
+    loadPlan = id => {
+
+        console.log('clicked ' + id)
+
+        API.getPlanByID(id)
+        .then(plan => {
+            console.log('hit the .then')
+            this.setState({
+            clickedPlan: plan,
+            loadPlan: true
+            })
+            if( this.state.loadPlan ) {
+                <Redirect to={'/planit/' + plan._id}  />
+            }
+        })
+        //add another .then to load the plan page with the specific cleckedPlan planID
+        .catch(err => console.log(err))
+
+    }
+//kasjdhfkjah
+    getUserPlans = () => {
+
+        const plans = this.state.plans
+
+        // for( let onePlan in plans ) {
+
+        //     console.log(plans[onePlan])
+
+        // }
+
+        API.getAllUserPlans('Walker')
+        .then(plans => {
+
+            for( let onePlan in plans ) {
+
+                console.log(plans[onePlan])
+
+            }
+
+            this.setState({
+            plans: plans
+        })
+    })
+        .catch(err => console.log(err))
+        
+    }
+
     render () {
+
+        //<PlanCard title={plan.title} location={plan.location} id={plan._id} date={plan.date} clicked={this.loadPlan} />
+
+
+        
         return (
             <div className='container clearfix'>
                 <div className='leftPanel'>
@@ -64,7 +137,7 @@ class HomePage extends Component {
                     </div>
                 </div>
                 <div className='cardPanel'>
-                    <PlanCard currentUser={this.state.currentUser}/>
+                    
                 </div>
             </div>
         );
