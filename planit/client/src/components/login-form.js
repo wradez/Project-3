@@ -67,25 +67,20 @@ const FormLink = styled.a`
 
 
 class LoginForm extends Component {
-    constructor() {
-        super()
-        this.state = {
+    state = {
             username: '',
             password: '',
             redirectTo: null
         }
-        this.handleSubmit = this.handleSubmit.bind(this)
-        this.handleChange = this.handleChange.bind(this)
-  
-    }
+      
 
-    handleChange(event) {
+    handleChange =event => {
         this.setState({
             [event.target.name]: event.target.value
         })
     }
 
-    handleSubmit(event) {
+    handleSubmit =event => {
         event.preventDefault()
         console.log('handleSubmit')
 
