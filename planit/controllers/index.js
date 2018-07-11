@@ -7,4 +7,5 @@ module.exports = {
     Gear: require('./planitControllersGear'),
     Logistics: require('./planitControllersLogistics'),
     User: require('./planitControllersUser'),
+    PlanIt: require('./planitControllersPlanIt')
 }

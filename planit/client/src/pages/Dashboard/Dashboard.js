@@ -31,8 +31,8 @@ class HomePage extends Component {
     createPlan = () => {
 
         API.postPlan({
-            title: '',
-            location: '',
+            title: 'Test',
+            location: 'Test',
             members: [this.state.currentUser]
         })
         .then(res => {
@@ -44,7 +44,7 @@ class HomePage extends Component {
 
     fetchProfileInfo = () => {
 
-        api.getUser(currentUser)
+        API.getUser(this.state.currentUser)
         .then( user => this.setState({
             currentUserProfile: user
         }))
