@@ -17,6 +17,7 @@ const ItemSymbol = styled.p`
     font-family: 'Roboto', sans-serif;
     margin-top: 6px;
     margin-bottom: 2px;
+    margin-right: 1px;
     float: left;
 `;
 
@@ -50,12 +51,13 @@ const QuantityInput = styled.input`
 	background: #ffffff;
 	border: none;
 	border-radius: 4px;
-	width: 50px;
+	width: 60px;
 	margin-top: .25em;
 	margin-bottom: .25em;
 	margin-left: .25em;
 	margin-right: .25em;
 	font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
 `;
 
 const CostInput = styled.input`
@@ -64,12 +66,13 @@ const CostInput = styled.input`
 	background: #ffffff;
 	border: none;
 	border-radius: 4px;
-	width: 50px;
+	width: 40px;
 	margin-top: .25em;
 	margin-bottom: .25em;
 	margin-left: .25em;
 	margin-right: .25em;
 	font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
 `;
 
 class ChecklistLineItem extends Component {

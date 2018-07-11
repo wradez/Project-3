@@ -92,7 +92,7 @@ class AddUser extends Component {
                         </Input>
                     </form>
                     <br />
-                    <AddButton type='submit' onClick={this.fetchUser}>Add</AddButton>
+                    <AddButton type='submit' onClick={this.fetchUser}>Add Member</AddButton>
                 </div>
             </div>
         )

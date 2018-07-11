@@ -33,14 +33,15 @@ const TripTitle = styled.h2`
 const TripInfoDiv = styled.div`
     margin-left: 1em;
     margin-right: 1em;
-    vertical-align: middle;
+    display: flex;
+    align-content: left;
+    justify-content: left;
 `;
 
 const TripInfoImg = styled.img`
     width: 24px;
-    height: 24px;
-    padding: 4px;
-    
+    height: auto;
+    /* justify-content: center; */
 `;
 
 const TripInfo = styled.p`

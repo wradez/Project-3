@@ -19,10 +19,10 @@ const Input = styled.input`
 	background: #ffffff;
 	border: none;
 	border-radius: 4px;
-	width: 285px;
+	width: 255px;
 	margin-top: .5em;
 	margin-bottom: .5em;
-	margin-left: auto;
+	margin-left: .5em;
 	margin-right: auto;
 	font-family: 'Roboto', sans-serif;
 
@@ -48,11 +48,24 @@ const FormDiv = styled.div`
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: 2em;
+    
+`;
 
+const FormInfoDiv = styled.div`
+    display: flex;
+    align-content: left;
+    justify-content: left;
 `;
 
 const FormInfo = styled.p`
+    display: inline-block;
     font-family: 'Roboto', sans-serif;
+`;
+
+const FormInfoImg = styled.img`
+    width: 24px;
+    height: auto;
+    /* justify-content: center; */
 `;
 
 const FormLink = styled.a`
@@ -125,11 +138,8 @@ class LoginForm extends Component {
                     <FormDiv>
                         <form>
                         <div>
-                            {/* <div>
-                                <label>Username</label>
-                            </div> */}
-                            <div>
-                                <img src={username} alt="Username Icon"/>
+                            <FormInfoDiv>
+                                <FormInfoImg src={username} alt="Username Icon"/>
                                 <Input className="form-input"
                                     type="text"
                                     id="username"
@@ -138,14 +148,11 @@ class LoginForm extends Component {
                                     value={this.state.username}
                                     onChange={this.handleChange}
                                 />
-                            </div>
+                            </FormInfoDiv>
                         </div>
                         <div>
-                            {/* <div>
-                                <label>Password: </label>
-                            </div> */}
-                            <div>
-                                <img src={password} alt="Password Icon"/>
+                            <FormInfoDiv>
+                                <FormInfoImg src={password} alt="Password Icon"/>
                                 <Input className="form-input"
                                     placeholder="password"
                                     type="password"
@@ -153,10 +160,9 @@ class LoginForm extends Component {
                                     value={this.state.password}
                                     onChange={this.handleChange}
                                 />
-                            </div>
+                            </FormInfoDiv>
                         </div>
-                        <div className="form-group">
-                            <div></div>
+                        <div>
                             <FormButton
                                 className="btn btn-primary col-1 col-mr-auto"
                                
