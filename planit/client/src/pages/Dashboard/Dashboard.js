@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { Redirect } from 'react-router';
 // import styled from 'styled-components';
 import './Dashboard.css';
@@ -89,33 +90,44 @@ class HomePage extends Component {
 
         console.log('clicked ' + id)
 
-        API.getPlanByID(id)
-        .then(plan => {
-            console.log('hit the .then')
-            this.setState({
-            clickedPlan: plan,
+        return this.setState({
             loadPlan: true
-            })
-            if( this.state.loadPlan ) {
-                <Redirect to={'/planit/' + plan._id}  />
-            }
         })
-        //add another .then to load the plan page with the specific cleckedPlan planID
-        .catch(err => console.log(err))
+
+
+        // API.getPlanByID(id)
+        // .then(plan => {
+        //     console.log('hit the .then')
+        //     this.setState({
+        //     clickedPlan: plan,
+        //     loadPlan: true
+        //     })
+        //     if( this.state.loadPlan ) {
+        //         <Link to={"/planit/" + plan.id} />
+        //     }
+        // })
+        // //add another .then to load the plan page with the specific cleckedPlan planID
+        // .catch(err => console.log(err))
 
     }
-//kasjdhfkjah
+
+    renderRedirect = () => {
+        if (this.state.loadPlan) {
+            <Redirect to='/planit/test'  />        
+        }
+    }
+
     getUserPlans = () => {
 
+        let testArray = []
 
-        const plans = this.state.plans
+        for( let onePlan in this.state.plans ) {
 
-        for( let onePlan in plans ) {
+            testArray.push(<PlanCard title={this.state.plans[onePlan].title} location={this.state.plans[onePlan].location} id={this.state.plans[onePlan]._id} date={this.state.plans[onePlan].date} clicked={this.loadPlan} />)
 
-            this.setState({
-                plansArray: [...this.state.plansArray, plans[onePlan]]
-            })
         }
+
+        return testArray
 
     //     API.getAllUserPlans('Walker')
     //     .then(plans => {
@@ -135,6 +147,8 @@ class HomePage extends Component {
     }
 
     render () {
+
+        //<PlanCard title={plan.title} location={plan.location} id={plan._id} date={plan.date} clicked={this.loadPlan} />
         
         return (
             <div className='container clearfix'>
@@ -147,9 +161,7 @@ class HomePage extends Component {
                     </div>
                 </div>
                 <div className='cardPanel'>
-                    {this.state.plansArray.map( plan => {
-                        return <PlanCard title={plan.title} location={plan.location} id={plan._id} date={plan.date} clicked={this.loadPlan} />
-                    })}
+                    {this.getUserPlans()}
                 </div>
             </div>
         );
