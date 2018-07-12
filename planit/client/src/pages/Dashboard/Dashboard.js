@@ -32,6 +32,18 @@ class HomePage extends Component {
                 location: 'Costa Rica',
                 date: '8/08/18',
                 _id: '239875498798df'
+            },
+            plan3: {
+                title: 'Graduation Vacation',
+                location: 'Green Mountain Reservoir',
+                date: '7/13/18',
+                _id: 'dabombdiggity'
+            },
+            plan4: {
+                title: 'Rocky Mountain National Adventure',
+                location: 'Fern lake, CO',
+                date: '7/20/18',
+                _id: 'cutthroatgalore'
             }
         },
         plansArray: [],
@@ -95,36 +107,34 @@ class HomePage extends Component {
 //kasjdhfkjah
     getUserPlans = () => {
 
+
         const plans = this.state.plans
 
-        // for( let onePlan in plans ) {
-
-        //     console.log(plans[onePlan])
-
-        // }
-
-        API.getAllUserPlans('Walker')
-        .then(plans => {
-
-            for( let onePlan in plans ) {
-
-                console.log(plans[onePlan])
-
-            }
+        for( let onePlan in plans ) {
 
             this.setState({
-            plans: plans
-        })
-    })
-        .catch(err => console.log(err))
+                plansArray: [...this.state.plansArray, plans[onePlan]]
+            })
+        }
+
+    //     API.getAllUserPlans('Walker')
+    //     .then(plans => {
+
+    //         for( let onePlan in plans ) {
+
+    //             console.log(plans[onePlan])
+
+    //         }
+
+    //         this.setState({
+    //         plans: plans
+    //     })
+    // })
+    //     .catch(err => console.log(err))
         
     }
 
     render () {
-
-        //<PlanCard title={plan.title} location={plan.location} id={plan._id} date={plan.date} clicked={this.loadPlan} />
-
-
         
         return (
             <div className='container clearfix'>
@@ -137,7 +147,9 @@ class HomePage extends Component {
                     </div>
                 </div>
                 <div className='cardPanel'>
-                    
+                    {this.state.plansArray.map( plan => {
+                        return <PlanCard title={plan.title} location={plan.location} id={plan._id} date={plan.date} clicked={this.loadPlan} />
+                    })}
                 </div>
             </div>
         );
