@@ -12,12 +12,14 @@ import './AddUser.css';
 import Button from '../Button';
 import API from '../../utils/api';
 const PlusImg = styled.img`
-    width: 50px;
-    height: 50px;
+    width: 25px;
+    height: 25px;
     border-radius: 50%;
     margin-left: .25em;
     margin-right: .25em;
     margin-bottom: .5em;
+    align-content: left;
+    justify-content: left;
 `;
 
 const AddButton = Button.extend`
@@ -89,7 +91,7 @@ class AddUser extends Component {
                         </Input>
                     </form>
                     <br />
-                    <AddButton type='submit' onClick={this.fetchUser}>Add</AddButton>
+                    <AddButton type='submit' onClick={this.fetchUser}>Add Member</AddButton>
                 </div>
             </div>
         )
