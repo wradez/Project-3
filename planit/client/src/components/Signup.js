@@ -153,7 +153,7 @@ render() {
 							type="password"
 							name="password"
 							value={this.state.password}
-							onChange={this.handleChange}
+							onChange={this.handleInputChange}
 							// innerRef={x => { this.input = x }}
 							// onMouseEnter={() => this.input.focus()}
 						/>
@@ -162,7 +162,7 @@ render() {
 				<div>
 					<div></div>
 					<FormButton
-						onClick={this.handleSubmit}
+						onClick={this.handleFormSubmit}
 						type="submit"
 					>Sign up
 					</FormButton>
