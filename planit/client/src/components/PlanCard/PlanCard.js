@@ -39,7 +39,7 @@ const PlanCard = props => {
             <Fragment>
                 <a href='/planit/test' >
                     <PlanCardDiv value={props.id} id={props.id} onClick={ () => props.clicked(props.id)} >
-                        <PlanImage src={placeholder} alt='Plan Visual' />
+                        <PlanImage src={props.image} alt='Plan Visual' />
                         <PlanTitle>
                             {props.title}
                         </PlanTitle>

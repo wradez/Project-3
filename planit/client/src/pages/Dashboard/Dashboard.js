@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Redirect } from 'react-router';
 // import styled from 'styled-components';
+import defaultImage from '../../img/defaultPlanImages/1.jpg';
+import defaultImage2 from '../../img/defaultPlanImages/2.jpg';
+import defaultImage3 from '../../img/defaultPlanImages/3.jpg';
+import defaultImage4 from '../../img/defaultPlanImages/4.jpg';
 import './Dashboard.css';
 import Button from '../../components/Button';
 import PlanCard from '../../components/PlanCard/PlanCard';
@@ -26,25 +30,29 @@ class HomePage extends Component {
                 title: 'Barbados Trip',
                 location: 'Barbados',
                 date: '8/02/18',
-                _id: 'xklfjhg293879584'
+                _id: 'xklfjhg293879584',
+                image: defaultImage3
             },
             plan2: {
                 title: 'Donald Relaxation',
                 location: 'Costa Rica',
                 date: '8/08/18',
-                _id: '239875498798df'
+                _id: '239875498798df',
+                image: defaultImage3
             },
             plan3: {
                 title: 'Graduation Vacation',
                 location: 'Green Mountain Reservoir',
                 date: '7/13/18',
-                _id: 'dabombdiggity'
+                _id: 'dabombdiggity',
+                image: defaultImage3
             },
             plan4: {
                 title: 'Rocky Mountain National Adventure',
                 location: 'Fern lake, CO',
                 date: '7/20/18',
-                _id: 'cutthroatgalore'
+                _id: 'cutthroatgalore',
+                image: defaultImage3
             }
         },
         plansArray: [],
@@ -52,9 +60,9 @@ class HomePage extends Component {
         loadPlan: false,
         currentUser: 'Walker',
         currentUserProfile: {
-            email: 'email@gmail.com',
-            username: 'defaut username',
-            name: 'default user'
+            email: 'donnyb@gmail.com',
+            username: 'donnyb',
+            name: 'Donny Boy'
         }
     }
 
@@ -123,7 +131,7 @@ class HomePage extends Component {
 
         for( let onePlan in this.state.plans ) {
 
-            testArray.push(<PlanCard title={this.state.plans[onePlan].title} location={this.state.plans[onePlan].location} id={this.state.plans[onePlan]._id} date={this.state.plans[onePlan].date} clicked={this.loadPlan} />)
+            testArray.push(<PlanCard title={this.state.plans[onePlan].title} image={this.state.plans[onePlan].image} location={this.state.plans[onePlan].location} id={this.state.plans[onePlan]._id} date={this.state.plans[onePlan].date} clicked={this.loadPlan} />)
 
         }
 
