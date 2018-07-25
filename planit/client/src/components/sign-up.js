@@ -12,12 +12,14 @@ const FormButton = Button.extend`
 `;
 
 const Div = styled.div`
-	float: left;
+	display: flex;
+    align-content: left;
+    justify-content: left;
 `;
 
 const Img = styled.img`
-	fill: #2b6aaf;
-	display: inline-block;
+ 	width: 24px;
+    height: auto;
 `;
 
 const Input = styled.input`
@@ -28,10 +30,10 @@ const Input = styled.input`
 	background: #ffffff;
 	border: none;
 	border-radius: 4px;
-	width: 75%;
+	width: 85%;
 	margin-top: .5em;
 	margin-bottom: .5em;
-	margin-left: auto;
+	margin-left: .5em;
 	margin-right: auto;
 	font-family: 'Roboto', sans-serif;
 
@@ -42,7 +44,7 @@ const Input = styled.input`
 
 const PageDiv = styled.div`
 	width: 100%;
-	height: 550px;
+	height: 605px;
 `;
 
 const Header = styled.h4`
@@ -127,7 +129,7 @@ render() {
 					{/* <div>
 						<label className="form-label" htmlFor="username">Username</label>
 					</div> */}
-					<div>
+					<Div>
 						<Img src={username} alt="Username Icon"/>
 						<Input
 							type="text"
@@ -137,14 +139,14 @@ render() {
 							value={this.state.username}
 							onChange={this.handleInputChange}
 						/>
-					</div>
+					</Div>
 				</div>
 
 				<div>
 					{/* <div>
 						<label className="form-label" htmlFor="password">Password: </label>
 					</div> */}
-					<div>
+					<Div>
 						<Img src={password} alt="Password Icon"/>
 						<Input
 							placeholder="Password"
@@ -155,7 +157,7 @@ render() {
 							// innerRef={x => { this.input = x }}
 							// onMouseEnter={() => this.input.focus()}
 						/>
-					</div>
+					</Div>
 				</div>
 				<div>
 					<div></div>
