@@ -2,10 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Redirect } from 'react-router';
 // import styled from 'styled-components';
-import defaultImage from '../../img/defaultPlanImages/1.jpg';
-import defaultImage2 from '../../img/defaultPlanImages/2.jpg';
 import defaultImage3 from '../../img/defaultPlanImages/3.jpg';
-import defaultImage4 from '../../img/defaultPlanImages/4.jpg';
 import './Dashboard.css';
 import Button from '../../components/Button';
 import PlanCard from '../../components/PlanCard/PlanCard';
@@ -73,14 +70,15 @@ class HomePage extends Component {
     createPlan = () => {
 
         API.postPlan({
-            title: '',
-            location: '',
+            title: 'Create a plan was clicked',
+            location: 'Test Location',
             members: [this.state.currentUser]
         })
         .then(res => {
-            <Redirect to={'/planit/' + res._id}  />
+            console.log("Made it to the clicked .then")
+            return <Redirect to={'/planit/' + res._id}  />
         })
-        .catch(err => console.log(err))
+        .catch(err => console.log("An error occured" , err))
 
     }
 
@@ -121,7 +119,7 @@ class HomePage extends Component {
 
     renderRedirect = () => {
         if (this.state.loadPlan) {
-            <Redirect to='/planit/test'  />        
+            return <Redirect to='/planit/test'  />        
         }
     }
 
