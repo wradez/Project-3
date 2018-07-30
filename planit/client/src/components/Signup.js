@@ -83,7 +83,7 @@ class Signup extends Component {
 			  console.log('sign-up handleSubmit, username: ')
 			  console.log(this.state.username)
 			event.preventDefault();
-			axios.post('/', {
+			axios.post('/api/planit/travel/is/fun/with/your/friends/and/family/enjoy/User', {
 			  email: this.state.email,
 			  username: this.state.username,
 			  password: this.state.password
