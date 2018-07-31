@@ -22,7 +22,7 @@ module.exports = {
         
     create: function(req,res){
         db.User
-        }.create(req.body)
+        .create(req.body)
         .then(dbPlanit => res.json(dbPlanit))
         .catch(err => res.status(422).json(err));
     },
