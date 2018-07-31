@@ -14,12 +14,14 @@ app.use(bodyParser.json());
 
 // DB Config
 const db = require('./config/keys').mongoURI;
-
+//this is trying to call the keys_dev which does not have mongoURI in it so it's reading db as undefined
+console.log('db is ' + db);
 // Connect to MongoDB
 mongoose
-  .connect(db)
+  .connect(db, { useNewUrlParser: true })
   .then(() => console.log('MongoDB Connected'))
   .catch(err => console.log(err));
+// works with 'mongodb://localhost:27017/myapp' in pllace of db
 
 // Passport middleware
 app.use(passport.initialize());

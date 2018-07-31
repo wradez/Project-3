@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 
 var Schema = mongoose.Schema;
-var UserSchema = new mongoose.Schema({
+var UserSchema = new Schema({
   email: { 
     type: String, match: [/.+@.+\..+/, "Not a valid email"]
   },
