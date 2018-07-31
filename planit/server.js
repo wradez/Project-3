@@ -7,7 +7,7 @@ const router = require("./routes/api");
 const passport = require('./passport');
 var MongoStore = require('connect-mongo')(session);
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 8080;
 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -41,6 +41,9 @@ app.use(passport.session()) // calls the deserializeUser
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
+process.on('uncaughtException', function (err) {
+  console.log(err);
+});
 // Start the API server
 app.listen(PORT, function() {
   console.log(`Server now listening on PORT ${PORT}!`);
